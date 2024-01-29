@@ -1,0 +1,17 @@
+01) Crear el entorno virtual con
+        python -m venv (nombre (venv))
+
+01.2)   activar el entorno
+        .\venv\Scripts\activate
+
+02) instalar djangorestframework
+        pip install djangorestframework
+
+03) crrear el proyecto 
+        django-admin startproject (nombre del proyecto) .
+
+04) crrear algunas apps
+        python manage.py startapp (nombre de la app)
+
+05) instalar las apps en settings
+
