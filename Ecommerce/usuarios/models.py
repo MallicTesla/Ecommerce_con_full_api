@@ -44,7 +44,7 @@ class Usuario (AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('Correo Electrónico', max_length=255, unique=True)
     nombre = models.CharField('Nombres', max_length=255, blank=True, null=True)
     apellido = models.CharField('Apellido', max_length=255, blank=True, null=True)
-    imagen = models.ImageField('Imagen de perfil', upload_to='perfil/', max_length=255, null=True, blank=True)
+    # imagen = models.ImageField('Imagen de perfil', upload_to='perfil/', max_length=255, null=True, blank=True)
     # activa y desactiva un usuario 
     is_active = models.BooleanField(default=True)
     # le da al usuario permisos para entrar al panel de django

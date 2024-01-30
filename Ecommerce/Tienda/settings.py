@@ -101,12 +101,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+#   especifica un modelo de usuario personalizado
+AUTH_USER_MODEL = "usuarios.Usuario"
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# django pasa a español
+LANGUAGE_CODE = 'es-es'
+# cambia la zona horaria
+TIME_ZONE = 'America/Montevideo'
 
 USE_I18N = True
 

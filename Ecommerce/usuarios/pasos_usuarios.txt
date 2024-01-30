@@ -1,0 +1,22 @@
+"------------------------------------- modelos -------------------------------------"
+01) crear los modelos de usuario
+
+02) agregar esto a settings para poder crear los automodelos de usuario
+#   especifica un modelo de usuario personalizado
+AUTH_USER_MODEL = "usuarios.Usuario"
+
+03) crear los modelos
+python manage.py makemigrations
+
+04) aplicar los cambios a la base de datos
+python manage.py migrate 
+
+05) crrear un super usuario
+python manage.py createsuperuser
+
+"------------------------------------- administrador -------------------------------------"
+01) crear la vista de los modelos en el administrador
+provar el administrador django para asegurarse que funcione todo
+
+"------------------------------------- serealizador -------------------------------------"
+01) crear un archivo serializars.py y agregar el serealizador de usuarios
