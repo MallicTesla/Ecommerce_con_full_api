@@ -15,3 +15,8 @@
 
 05) instalar las apps en settings
 
+06) crear los modelos
+
+07) guardar los modelos en la base de datos
+        
+
