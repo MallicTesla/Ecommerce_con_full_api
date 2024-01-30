@@ -27,4 +27,4 @@
 08) agregar los modelos al administrador
         provar el administrador django para asegurarse que funcione todo
 
-09) crear un archivo serializars.py y agregar el serealizador
+09) crear un carpeta api con un archivo serializars.py y agregar el serealizador
