@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 
 from usuarios.models import Usuario
 
-class UsuarioSerializers (serializers.ModelSerializer):
+class UsuarioNuevoSerializers (serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = "__all__"
@@ -21,3 +21,17 @@ class UsuarioSerializers (serializers.ModelSerializer):
         usuario = Usuario(**validated_data)
         usuario.save()
         return usuario
+
+
+class UsuarioListaSerializaes (serializers.ModelSerializer):
+    class Meta :
+        model = Usuario
+
+    def to_representation (self, instance):
+        return {
+            #   podes modificar lo que esta antes del instance para que muestre eso sin modificar el modelo
+            "id":instance ["id"],
+            "nombre de usuario":instance ["nombre_usuario"],
+            "correo":instance ["email"],
+            "password":instance ["password"],
+        }

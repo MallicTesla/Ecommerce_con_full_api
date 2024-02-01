@@ -38,9 +38,11 @@
                 se puede agregar logica extra para la autentificacion de la contraseña y el correo,
                 se puede agregar logica para actualizar un usuario,
                 se puede agregar la autentificacion de usuario por token JWT
+                se puede acer una logica para optener una lista
 
         03) crear un archivo api_views.py que hace las de views.py
-                aca van los metodos http que se conectan con el serealizador
+                aca van los metodos HTTP que se conectan con el serealizador
+                y los estados HTTP
 
         04) creear un archivo routers.py hace las de urls.py
                 aca van las urls
