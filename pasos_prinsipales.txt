@@ -15,16 +15,18 @@
 
 05) instalar las apps en settings
 
-06) crear los modelos de usuarios
+06) instalar swagger
+
+07) crear los modelos de usuarios
         si se crea un modelo con AbstractBaseUser y PermissionsMixin tenes que agregar esto a settings
         #   especifica un modelo de usuario personalizado
         AUTH_USER_MODEL = "usuarios.Usuario"
 
-07) crear los modelos en la base de datos
+08) crear los modelos en la base de datos
         python manage.py makemigrations
         python manage.py migrate
 
-08) agregar los modelos al administrador
+09) agregar los modelos al administrador
         provar el administrador django para asegurarse que funcione todo
 
-09) crear un carpeta api con un archivo serializars.py y agregar el serealizador
+10) crear un carpeta api con un archivo serializars.py y agregar el serealizador

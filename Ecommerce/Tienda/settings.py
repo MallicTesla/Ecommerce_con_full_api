@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # apps de terceros
+    "rest_framework",
+    "drf_yasg",
+
+    # mis apps
     "usuarios",
 ]
 

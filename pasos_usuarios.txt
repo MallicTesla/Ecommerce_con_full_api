@@ -18,5 +18,11 @@ python manage.py createsuperuser
 01) crear la vista de los modelos en el administrador
 provar el administrador django para asegurarse que funcione todo
 
-"------------------------------------- serealizador -------------------------------------"
-01) crear un carpeta api con un archivo serializars.py y agregar el serealizador
+"------------------------------------- api -------------------------------------"
+01) crear un carpeta api y colocar dentro los siguientes pasos no te olbides del __init__.py
+
+02) se crea un archivo serializars.py y agregar el serealizador
+
+03) crear un archivo app.py que hace las de views.py
+
+04) creear un archivo routers.py hace las de urls.py
