@@ -29,4 +29,20 @@
 09) agregar los modelos al administrador
         provar el administrador django para asegurarse que funcione todo
 
-10) crear un carpeta api con un archivo serializars.py y agregar el serealizador
+10) crear un carpeta api
+        01) crear un carpeta api y colocar dentro los siguientes pasos no te olbides del __init__.py
+                dento de api irian todos los archivos que manegan la logica de la app y sus rutas
+
+        02) se crea un archivo serializars.py y agregar el serealizador
+                dentro de este archivo se manega la logica a la hora de serealizador el usuario se pueden hacer cosas momo espesificar los campos del modelo a serealizar,
+                se puede agregar logica extra para la autentificacion de la contraseña y el correo,
+                se puede agregar logica para actualizar un usuario,
+                se puede agregar la autentificacion de usuario por token JWT
+
+        03) crear un archivo api_views.py que hace las de views.py
+                aca van los metodos http que se conectan con el serealizador
+
+        04) creear un archivo routers.py hace las de urls.py
+                aca van las urls
+
+

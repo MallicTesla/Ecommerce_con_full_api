@@ -15,7 +15,7 @@ class UsuarioSerializers (serializers.ModelSerializer):
     #     usuario.save()
     #     return usuario
 
-    def create(self, validated_data):
+    def create (self, validated_data):
         #  Esta función se utiliza para generar una cadena de contraseña encriptada sin necesidad de tener una instancia de modelo de usuario.
         validated_data['password'] = make_password(validated_data['password'])
         usuario = Usuario(**validated_data)

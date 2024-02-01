@@ -1,7 +1,7 @@
 #   cuando se usa GenericViewSet enves de urls se usa routers
 from rest_framework.routers import DefaultRouter
 
-from usuarios.api.app import UsuariosViewSets
+from usuarios.api.api_views import UsuariosViewSets
 
 router = DefaultRouter()
 

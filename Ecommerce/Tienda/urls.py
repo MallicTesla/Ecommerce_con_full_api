@@ -10,11 +10,11 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Your API",
+        title="Mallic API",
         default_version='v1',
-        description="Your API description",
-        terms_of_service="https://www.yourapp.com/terms/",
-        contact=openapi.Contact(email="contact@yourapp.com"),
+        description="Una API de ecommerce para practicar",
+        terms_of_service="https://github.com/MallicTesla",
+        contact=openapi.Contact(email="el_mallic@hotmail.com"),
         license=openapi.License(name="Your License"),
     ),
     public=True,
