@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import make_password
 
 from usuarios.models import Usuario
 
+# Crea un usuario nuevo
 class UsuarioNuevoSerializers (serializers.ModelSerializer):
     class Meta:
         model = Usuario
@@ -23,6 +24,7 @@ class UsuarioNuevoSerializers (serializers.ModelSerializer):
         return usuario
 
 
+# Optine todo los usuarios
 class UsuarioListaSerializaes (serializers.ModelSerializer):
     class Meta :
         model = Usuario
@@ -35,3 +37,20 @@ class UsuarioListaSerializaes (serializers.ModelSerializer):
             "correo":instance ["email"],
             "password":instance ["password"],
         }
+
+
+
+
+
+class UsuarioSerializers (serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = ("nombre_usuario", "email", "nombre", "apellido", "password")
+
+    def create(self, validated_data):
+        usuario = Usuario (**validated_data)
+        #   aca se toma la contraseña cuando creas un usuario nuevo y la encripta
+        usuario.set_password (validated_data ["password"])
+        usuario.save()
+        return usuario
+
