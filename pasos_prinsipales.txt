@@ -12,6 +12,9 @@
 
 04) crrear algunas apps
         python manage.py startapp (nombre de la app)
+        1) usuario
+        2) base
+        3) productos
 
 05) instalar las apps en settings
 
@@ -31,3 +34,5 @@
 
 10) segir los pasos para cada app
         1) pasos usuario
+        1) pasos base
+        2) pasos productos
