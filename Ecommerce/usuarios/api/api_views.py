@@ -78,7 +78,7 @@ class UsuarioViwSet (viewsets.GenericViewSet):
         if usuario_serializer.is_valid():
             usuario_serializer.save()
 
-            return Response ({"Mensage":"El usauario se actualizo corectamente (api.UsuarioViwSet.create)"}, status = status.HTTP_200_OK)
+            return Response ({"Mensage":"El usauario se actualizo corectamente " , "Nuevos datos":usuario_serializer.data}, status = status.HTTP_200_OK)
         return Response ({"Mensagr":"Error en la actualizasion", "Error":usuario_serializer.errors}, status = status.HTTP_400_BAD_REQUEST)
 
 

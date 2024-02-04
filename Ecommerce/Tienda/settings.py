@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # mis apps
     "usuarios",
+    "articulos",
 ]
 
 MIDDLEWARE = [
