@@ -36,5 +36,3 @@
         1) pasos usuario
         1) pasos base
         2) pasos productos
-
-
