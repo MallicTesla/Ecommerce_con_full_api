@@ -1,0 +1,12 @@
+la app base se usa para no repetir codigo generico en las otras apps por ejemplo para hacer un serealizador generico y tambien maneja el simple-history
+
+01) se crea un archivo llamado api_views.py, esta vista genérica proporciona una estructura base para vistas que devuelven listas de objetos de modelos específicos que cumplen
+    con ciertos criterios. La clase derivada que use esta vista debe proporcionar la clase del serializador que se utilizará (serializer_class) y puede personalizar el método
+    get_queryset según sea necesario. 
+
+02) podes estavleser un modelo para crear un historila y asi usarlo cuando lo nesesitas
+    para eso nesesitas instalar la libreria pip install django-simple-history
+    despues instalala en las apps de settings "simple_history",
+
+03) creas una archivo herramientas.py y agregas la logica para manejar la libreria simple-history
+

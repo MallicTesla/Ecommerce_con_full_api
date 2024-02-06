@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # apps de terceros
     "rest_framework",
     "drf_yasg",
+    "simple_history",
 
     # mis apps
     "usuarios",
