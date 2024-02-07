@@ -1,1 +1,7 @@
-01) crear los modelos de los articulos
+01) crear los modelos
+        Producto
+        UnidadMedida
+        CategoriaProducto
+        indicador
+
+02) crear el administrador de los modelos

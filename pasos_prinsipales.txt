@@ -16,23 +16,24 @@
         2) base
         3) productos
 
-05) instalar las apps en settings
+05) segir los pasos para cada app
+        1) pasos usuario
+        1) pasos base
+        2) pasos productos
 
 06) instalar swagger
 
-07) crear los modelos de usuarios
+07) instalar las apps en settings
+
+08) crear los modelos de usuarios
         si se crea un modelo con AbstractBaseUser y PermissionsMixin tenes que agregar esto a settings
         #   especifica un modelo de usuario personalizado
         AUTH_USER_MODEL = "usuarios.Usuario"
 
-08) crear los modelos en la base de datos
+09) crear los modelos en la base de datos
         python manage.py makemigrations
         python manage.py migrate
 
-09) agregar los modelos al administrador
+10) agregar los modelos al administrador
         provar el administrador django para asegurarse que funcione todo
 
-10) segir los pasos para cada app
-        1) pasos usuario
-        1) pasos base
-        2) pasos productos

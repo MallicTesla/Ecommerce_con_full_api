@@ -10,3 +10,7 @@ la app base se usa para no repetir codigo generico en las otras apps por ejemplo
 
 03) creas una archivo herramientas.py y agregas la logica para manejar la libreria simple-history
 
+04) migra los modelos 
+        python manage.py makemigrations
+        python manage.py migrate
+
