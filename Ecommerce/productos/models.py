@@ -79,8 +79,8 @@ class Producto(BaseModel):
     producto_modificado = models.DateTimeField("Fecha de modificado", default=timezone.now)
     producto_comprado = models.DateTimeField("Fecha de comprado", null=True, blank=True)
 
-    # vendedor =
-    # comprador =
+    # vendedor = 
+    # comprador = 
     
     # imagen_producto = models.ImageField("Imagen del producto", upload_to="productos_imagen/", blank = True, null = True)
 
@@ -110,13 +110,7 @@ class Producto(BaseModel):
         from django.db.models import Sum
         #   esto se importa aca porque puede generar recursividad
 
-
-        # descomentar todo lo de abajo
-
-
-
-
-
+# descomenta esto despues de hacer la app para gestionar
         # from gestion_gastos.models import Gasto
 
         # gasto = Gasto.objects.filter (

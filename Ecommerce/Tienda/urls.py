@@ -29,6 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # mis apps
+    # usuario
     path ("usuario/", include("usuarios.api.routers")),
-
+    # producto
+    path ("productos/", include ("productos.api.routers")),
 ]

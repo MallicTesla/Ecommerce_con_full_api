@@ -1,7 +1,25 @@
 01) crear los modelos
-        Producto
-        UnidadMedida
-        CategoriaProducto
-        indicador
+Producto
+UnidadMedida
+CategoriaProducto
+indicador
 
 02) crear el administrador de los modelos
+
+03) hacer las migraciones 
+python manage.py makemigrations
+python manage.py migrate
+
+04) crear una carpeta api que dentro tenga esta ecctructura
+api
+    serealizador
+        general_serealizer.py
+        producto_serealizer.py
+    views
+        general_views.py
+        productions_views.py
+    routers.py
+    urls.py
+
+05) agregar la app a la urls principal
+path ("productos/", include ("productos.api.routers")),
