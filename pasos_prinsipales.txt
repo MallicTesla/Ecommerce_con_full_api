@@ -4,6 +4,9 @@
 01.2)   activar el entorno
         .\venv\Scripts\activate
 
+        desactiva el entorno
+        .\venv\Scripts\deactivate
+
 02) instalar djangorestframework
         pip install djangorestframework
 
