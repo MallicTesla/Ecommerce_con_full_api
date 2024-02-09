@@ -5,6 +5,8 @@ CategoriaProducto
 indicador
 
 02) crear el administrador de los modelos
+el historial se gestiona en la app de "gestion_gastos"
+historial = HistoricalRecords ()
 
 03) hacer las migraciones 
 python manage.py makemigrations
@@ -17,6 +19,7 @@ api
         producto_serealizer.py
     views
         general_views.py
+            aca usas los archivos base que hicistes
         productions_views.py
     routers.py
     urls.py

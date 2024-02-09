@@ -3,7 +3,7 @@ from base.models import BaseModel
 
 from django.utils import timezone
 from django.db import models
-# from simple_history.models import HistoricalRecords
+from simple_history.models import HistoricalRecords
 
 class UnidadMedida (BaseModel):
     descripción = models.CharField ("Descripción", max_length = 50, blank = False, null = False, unique = True)
@@ -11,12 +11,12 @@ class UnidadMedida (BaseModel):
     # historial = HistoricalRecords ()
 
     #  este decorador se utiliza para definir un método como una propiedad de solo lectura
-    #  con esta funcion se opstiene el usuario que realiso la modificasion
+    #  con esta funcion se optiene el usuario que realiso la modificasion
     # @property
     # def _history_user (self):
     #     return self.changed_by
     
-    #   con esta funcion se guarda el usuario que realiso la modificasion en el historial
+    # #   con esta funcion se guarda el usuario que realiso la modificasion en el historial
     # @_history_user.setter
     # def _history_user (self, value):
     #     self.changed_by = value
@@ -75,9 +75,9 @@ class Producto(BaseModel):
     descripcion_producto = models.TextField("Descripción del producto", null=False, unique=True)
     precio = models.FloatField("Precio", max_length=10, unique=False, blank=False, null=False)
     vendido = models.BooleanField("Vendido", default=False, blank=False, null=False)
-    producto_agregado = models.DateTimeField("Fecha de agregado", default=timezone.now)
-    producto_modificado = models.DateTimeField("Fecha de modificado", default=timezone.now)
-    producto_comprado = models.DateTimeField("Fecha de comprado", null=True, blank=True)
+    # producto_agregado = models.DateTimeField("Fecha de agregado", default=timezone.now)
+    # producto_modificado = models.DateTimeField("Fecha de modificado", default=timezone.now)
+    # producto_comprado = models.DateTimeField("Fecha de comprado", null=True, blank=True)
 
     # vendedor = 
     # comprador = 
@@ -105,10 +105,10 @@ class Producto(BaseModel):
     
     #   el estok se agrega de esta forma por las diversas operasiones que se le puede hacer
     #   property permite llamar a la funsion como si fuera un campo mas del modelo
-    @property
-    def stocks (self):
-        from django.db.models import Sum
-        #   esto se importa aca porque puede generar recursividad
+    # @property
+    # def stocks (self):
+    #     from django.db.models import Sum
+    # #       esto se importa aca porque puede generar recursividad
 
 # descomenta esto despues de hacer la app para gestionar
         # from gestion_gastos.models import Gasto

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "usuarios",
     "base",
     "productos",
+    "gestion_gastos",
 ]
 
 MIDDLEWARE = [

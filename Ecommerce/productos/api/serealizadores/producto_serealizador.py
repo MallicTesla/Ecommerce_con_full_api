@@ -46,7 +46,11 @@ class ProductoSerealizera (serializers.ModelSerializer):
         return {
             "id": instance.id,
             # el if es para cuando no tenes ninguna cantidad en estock aparesca 0 en el fron
-            "stock": instance.stocks.get ("cantidad__sum") if instance.stocks.get ("cantidad__sum") is not None else 0,
+
+
+            # "stock": instance.stocks.get ("cantidad__sum") if instance.stocks.get ("cantidad__sum") is not None else 0,
+
+
             "producto": instance.producto,
             "descripción_producto": instance.descripción_producto,
             #   cuando no tenes una imagen devuelve una cadena vasio y da error asi lo areglas
