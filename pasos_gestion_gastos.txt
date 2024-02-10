@@ -42,7 +42,14 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
 }
 
-
+05) dentro de la app crear esta estructura de archivos
+api
+    serializers
+        gasto_serializers.py
+        general_serializer.py
+    viewset
+        gasto_viewset.py
+    routers.py
 
 
 

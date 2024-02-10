@@ -20,7 +20,7 @@ class GastoViewSets (viewsets.GenericViewSet):
 
     # para buscar y actualisar un provedor (factura)
     @action (methods=["get"], detail=False)
-    def buscar_provedor(self, request:Request):
+    def buscar_provedor (self, request:Request):
         #   esto toma las palabras para buscar al final va el nombre de la variable que viene del fron
         ruc_o_negosio = request.query_params.get ("ruc_o_negosio", "")
         #   busaca en los campos de la base de datos si existen coinsidensias
@@ -47,33 +47,33 @@ class GastoViewSets (viewsets.GenericViewSet):
 
     @action (methods = ["get"], detail = False)
     def optener_comprovante (self, request:Request):
-        data = Comprobante.objects.filter(estado = True).order_by("id")
-        data = ComprobanteSerializer(data, many = True).data
+        data = Comprobante.objects.filter (estado = True).order_by ("id")
+        data = ComprobanteSerializer (data, many = True).data
         return Response (data)
 
     @action (methods = ["get"], detail = False)
     def optener_medio_pago (self, request:Request):
-        data = MedioDePago.objects.filter(estado = True).order_by("id")
+        data = MedioDePago.objects.filter (estado = True).order_by ("id")
         data = MedioDePagoSerializer(data, many = True).data
         return Response (data)
 
     @action (methods = ["get"], detail = False)
     def optener_producto (self, request:Request):
-        data = Producto.objects.filter(estado = True).order_by("id")
-        data = ProductoSerializer(data, many = True).data
+        data = Producto.objects.filter (estado = True).order_by ("id")
+        data = ProductoSerializer (data, many = True).data
         return Response (data)
 
     def forma_fecha (self, data):
         JWT_authentication = JWTAuthentication()
         #   decodifica el token y da el usuario y el token
-        usuario, token = JWT_authentication.authenticate(self.request)
+        usuario, token = JWT_authentication.authenticate (self.request)
         data ["usuario"] = usuario.id # creo que puede ser (user.id)
         data ["data"] = formanto_fecha (data ["data"])
         return data
 
     def create (self, request:Request):
         data = self.forma_fecha (request.data)
-        serealzador = self.serializer_class(data = data)
+        serealzador = self.serializer_class (data = data)
 
         if serealzador.is_valid():
             serealzador.save()
