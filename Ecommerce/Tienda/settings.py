@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,8 +41,14 @@ INSTALLED_APPS = [
 
     # apps de terceros
     "rest_framework",
+    #   swagger
     "drf_yasg",
+    #   historial
     "simple_history",
+    #   libreria jwt
+    "rest_framework_simplejwt",
+    #   lista negra de jwt tenes que migrar al instalar esta app
+    "rest_framework_simplejwt.token_blacklist",
 
     # mis apps
     "usuarios",
@@ -58,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #   agregas esto que es para reconoser el istorial de cada usuario
+    # "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 ROOT_URLCONF = 'Tienda.urls'
@@ -135,4 +144,32 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
+#   especifica un modelo de usuario personalizado
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# parte de JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # autenticasion global personalisada
+        #  aca va la clase que se usa para autentificar
+        # "usuarios.autentificasion_mixer.Autentificador",
+        #   este es para la libreria simple JWT
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+        # para agregarle la autentificasion de forma global
+        'DEFAULT_PERMISSION_CLASSES': (
+            'rest_framework.permissions.IsAuthenticated',
+        )
+}
+
+# estas son configuraciones adisionales para JWT
+SIMPLE_JWT = {
+    #   asi le definis la vida del token de acseso
+    "ACCESS_TOKEN_LIFETIME": timedelta (days = 10),
+    #   asi le definis la vida del token de refrescar
+    "REFRESH_TOKEN_LIFETIME": timedelta (days = 10),
+    #   eso refresca el tonque de acseso y el de refrescar al mismo tiempo
+    "ROTATE_REFRESH_TOKENS": True,
+    #   este agrega los tokens refrescados a la lista negra
+    "BLACKLIST_AFTER_ROTATION": True,
+}

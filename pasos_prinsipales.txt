@@ -18,11 +18,13 @@
         1) usuario
         2) base
         3) productos
+        4) gestion_gastos
 
 05) segir los pasos para cada app
         1) pasos usuario
-        1) pasos base
-        2) pasos productos
+        2) pasos base
+        3) pasos productos
+        4) pasos gestion_gastos
 
 06) instalar swagger
 

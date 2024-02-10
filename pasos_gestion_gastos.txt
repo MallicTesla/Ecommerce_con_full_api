@@ -1,0 +1,49 @@
+01) instalar la app 
+python manage.py startapp gestion_gastos
+
+02) instalar jwt
+pip install djangorestframework-simplejwt
+
+03) instalar las app en settings
+"gestion_gastos",
+
+#   libreria jwt
+"rest_framework_simplejwt",
+#   lista negra de jwt tenes que migrar al instalar esta app
+"rest_framework_simplejwt.token_blacklist",
+
+04) tamvien tenes se tiene que agregar esto a settings
+from datetime import timedelta
+
+# parte de JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # autenticasion global personalisada
+        #  aca va la clase que se usa para autentificar
+        # "usuarios.autentificasion_mixer.Autentificador",
+        #   este es para la libreria simple JWT
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+        # para agregarle la autentificasion de forma global
+        'DEFAULT_PERMISSION_CLASSES': (
+            'rest_framework.permissions.IsAuthenticated',
+        )
+}
+
+# estas son configuraciones adisionales para JWT
+SIMPLE_JWT = {
+    #   asi le definis la vida del token de acseso
+    "ACCESS_TOKEN_LIFETIME": timedelta (days = 10),
+    #   asi le definis la vida del token de refrescar
+    "REFRESH_TOKEN_LIFETIME": timedelta (days = 10),
+    #   eso refresca el tonque de acseso y el de refrescar al mismo tiempo
+    "ROTATE_REFRESH_TOKENS": True,
+    #   este agrega los tokens refrescados a la lista negra
+    "BLACKLIST_AFTER_ROTATION": True,
+}
+
+
+
+
+
+
