@@ -42,7 +42,13 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
 }
 
-05) dentro de la app crear esta estructura de archivos
+
+05) crear los modelos
+hacer las migraciones
+
+06) crear el admin
+
+07) dentro de la app crear esta estructura de archivos
 api
     serializers
         gasto_serializers.py
