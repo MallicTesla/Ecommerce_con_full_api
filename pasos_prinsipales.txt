@@ -42,3 +42,7 @@
 10) agregar los modelos al administrador
         provar el administrador django para asegurarse que funcione todo
 
+11) agregar esto e urls.py para haser el lgin y el logaut
+        path("login/", Login.as_view(), name = "login"),
+        path("logaut/", Logaut.as_view(), name="logaut"),
+

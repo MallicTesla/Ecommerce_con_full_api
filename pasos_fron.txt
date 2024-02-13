@@ -1,0 +1,2 @@
+01) crear el proyecto react 
+npx create-react-app (ecommerce_fron)

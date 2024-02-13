@@ -6,6 +6,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
+from usuarios.views import Login, Logaut
+
 # JWT
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -39,6 +41,8 @@ urlpatterns = [
     # mis apps
     # usuario
     path ("usuario/", include("usuarios.api.routers")),
+    path("login/", Login.as_view(), name = "login"),
+    path("logaut/", Logaut.as_view(), name="logaut"),
     # producto
     path ("productos/", include ("productos.api.routers")),
     # gestion_gastos

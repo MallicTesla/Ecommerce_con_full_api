@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
 from django.contrib.auth.hashers import make_password
 
 from usuarios.models import Usuario
@@ -53,3 +55,12 @@ class ActualizarContraseñaSerializaes (serializers.Serializer):
         if data["password_1"] != data["password_2"]:
             raise serializers.ValidationError({"password":"Las contraseñas no son iguales (api.serealizador)"})
         return data
+
+
+class OptenerTokenCustomPairView (TokenObtainPairSerializer):
+    pass
+
+class CustomUsuarioSerializers (serializers.ModelSerializer):
+    class Meta :
+        model = Usuario
+        fields = ("nombre_usuario", "email", "nombre", "apellido", )
