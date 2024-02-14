@@ -39,3 +39,7 @@ SIMPLE_JWT = {
     "BLACKLIST_AFTER_ROTATION": True,
 }
 
+# verificar las credenciales de usuario y determinar si un usuario tiene acceso a la aplicación
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

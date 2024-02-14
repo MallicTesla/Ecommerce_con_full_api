@@ -66,7 +66,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #   agregas esto que es para reconoser el istorial de cada usuario
-    # "simple_history.middleware.HistoryRequestMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
+
 ]
 
 ROOT_URLCONF = 'Tienda.urls'
@@ -173,3 +174,8 @@ SIMPLE_JWT = {
     #   este agrega los tokens refrescados a la lista negra
     "BLACKLIST_AFTER_ROTATION": True,
 }
+
+# verificar las credenciales de usuario y determinar si un usuario tiene acceso a la aplicación
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

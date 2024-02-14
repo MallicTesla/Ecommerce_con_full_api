@@ -3,7 +3,7 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 
-from usuarios.autentificasion import ExpirasonTokenAuthentication
+from usuarios.autenticacion import ExpirasonTokenAuthentication
 
 #   authentication.BaseAuthentication es para cuando queres hacer una autentificasion global sino usas object
 class Autentificador (authentication.BaseAuthentication):
@@ -14,6 +14,7 @@ class Autentificador (authentication.BaseAuthentication):
 
     def get_user (self, request):
         token = get_authorization_header(request).split()
+        print (token)
 
         if token:
             try:

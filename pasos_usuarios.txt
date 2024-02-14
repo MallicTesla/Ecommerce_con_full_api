@@ -35,3 +35,10 @@ provar el administrador django para asegurarse que funcione todo
 
 04) creear un archivo routers.py hace las de urls.py
     aca van las urls
+
+"------------------------------------- autentificacion -------------------------------------"
+se crean 2 archivos para manejar la autentificacion
+01) autenticacion.py que es para agregarle funsionalidades al token como tiempo de expiracion
+
+02) autenticacion_mixer.py para menegar la autenticacion de los usuarios
+
