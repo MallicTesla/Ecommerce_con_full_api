@@ -39,6 +39,13 @@ Linux/MacOSv
 source .venv/bin/activate
 ```
 
+### Instalar requerimientos
+
+```
+cd Ecommerce
+pip install -r requirements.txt
+```
+
 ### Aplicar migraciones
 
 ```
