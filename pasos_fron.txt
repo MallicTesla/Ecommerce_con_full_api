@@ -1,2 +1,40 @@
+"--------------------------------- DJANGO - BACK ---------------------------------"
+01) instalar las politicas CORS  https://github.com/adamchainz/django-cors-headers
+pip install django-cors-headers
+
+02) instalar la app de cors en las apps de settings
+"corsheaders",
+
+03) en los MIDDLEWARE de settings agrega esto lo mas alto posible
+"corsheaders.middleware.CorsMiddleware",
+
+04) tambien se agrega esto a settings
+# aca se indica desde donde se pueden hacer peticiones al backend
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# si da error se deve agregar esoto
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# o sino esto
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.localhost:3000$",
+    r"^https://\w+\.127.0.0.1:3000$",
+]
+
+
+"--------------------------------- REACT - FROND ---------------------------------"
 01) crear el proyecto react 
 npx create-react-app (ecommerce_fron)
+
+02) instalar la libreria AXIOS que manega las peticiones HTTP al servidor
+npm install axios
+
+
+
+

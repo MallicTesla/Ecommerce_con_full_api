@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     #   lista negra de jwt tenes que migrar al instalar esta app
     "rest_framework_simplejwt.token_blacklist",
+    # CORS
+    "corsheaders",
 
     # mis apps
     "usuarios",
@@ -58,6 +60,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # CORS
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -179,3 +183,21 @@ SIMPLE_JWT = {
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# aca se indica desde donde se pueden hacer peticiones al backend
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# si da error se deve agregar esoto
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# o sino esto
+# CORS_ALLOWED_ORIGIN_REGEXES = [
+#     r"^https://\w+\.localhost:3000$",
+#     r"^https://\w+\.127.0.0.1:3000$",
+# ]
