@@ -46,3 +46,4 @@
         path("login/", Login.as_view(), name = "login"),
         path("logaut/", Logaut.as_view(), name="logaut"),
 
+12) podes continuar con el pasos_fron.txt

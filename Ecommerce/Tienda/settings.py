@@ -69,7 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #   agregas esto que es para reconoser el istorial de cada usuario
+    #   agregas esto que es para reconoser el historial de cada usuario
     "simple_history.middleware.HistoryRequestMiddleware",
 
 ]
@@ -152,20 +152,20 @@ STATIC_URL = 'static/'
 #   especifica un modelo de usuario personalizado
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# parte de JWT
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        # autenticasion global personalisada
-        #  aca va la clase que se usa para autentificar
-        # "usuarios.autentificasion_mixer.Autentificador",
-        #   este es para la libreria simple JWT
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-        # para agregarle la autentificasion de forma global
-        'DEFAULT_PERMISSION_CLASSES': (
-            'rest_framework.permissions.IsAuthenticated',
-        )
-}
+# parte de JWT esto acticva la petision del token
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         # autenticasion global personalisada
+#         #  aca va la clase que se usa para autentificar
+#         # "usuarios.autentificasion_mixer.Autentificador",
+#         #   este es para la libreria simple JWT
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ],
+#         # para agregarle la autentificasion de forma global
+#         'DEFAULT_PERMISSION_CLASSES': (
+#             'rest_framework.permissions.IsAuthenticated',
+#         )
+# }
 
 # estas son configuraciones adisionales para JWT
 SIMPLE_JWT = {
