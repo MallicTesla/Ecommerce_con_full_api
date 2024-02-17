@@ -11,7 +11,7 @@ function App() {
                 <nav>
                     <ul>
                         <li><Link to="/"> Inicio </Link></li>
-                        <li><Link to="/usuarios" onClick={() => setMostrarUsuario (true)}> Usuario </Link></li>
+                        <li><Link to="/usuarios" onClick = {() => setMostrarUsuario (true)}> Usuario </Link></li>
                     </ul>
                 </nav>
 
@@ -29,7 +29,7 @@ export default App;
 
 
 
-// -----------------------------la barra de nabegacion sin usar "react-router-dom"--------------------
+// -----------------------------la barra de nabegacion sin usar "react-router-dom"---------------------------------
 // import React, { useState } from "react";
 // import Usuario from "./01-App";
 

@@ -32,9 +32,9 @@ class UsuarioListaSerializaes (serializers.ModelSerializer):
         #   asi muestra solo los campos definidos tambien se tienen que definir en el objeto en api.py
         #   si se usa .values en el objeto en api.py aca se tiene que pasar los campos como si fuera una lista sino se le pasa solo el atributo id":instance.id,
         return {
-            #   podes modificar lo que esta antes del instance para que muestre eso sin modificar el modelo
+            #   podes modificar lo que esta antes del instance para que muestre eso sin modificar el modelo, no tienen que tener espasios o sino puede que no funcione
             "id":instance ["id"],
-            "nombre de usuario":instance ["nombre_usuario"],
+            "nombre_de_usuario":instance ["nombre_usuario"],
             "correo":instance ["email"],
             "password":instance ["password"],
         }
