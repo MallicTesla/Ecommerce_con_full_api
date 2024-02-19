@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
-import Usuario from "./paginas/usuario";
+import Usuarios from "./paginas/usuario/usuarios";
+import Usuario  from "./paginas/usuario/usuario";
+
 
 function App() {
-    const [mostrarUsuario, setMostrarUsuario] = useState (false);    //Utiliza el hook useState para declarar un estado llamado mostrarUsuario con un valor inicial de false. También declara una función setMostrarUsuario para actualizar este estado.
 
     return (
         <Router>
@@ -11,13 +12,15 @@ function App() {
                 <nav>
                     <ul>
                         <li><Link to="/"> Inicio </Link></li>
-                        <li><Link to="/usuarios" onClick = {() => setMostrarUsuario (true)}> Usuario </Link></li>
+                        <li><Link to="/usuarios"> Usuarios </Link></li>
+                        <li><Link to="/usuario "> Usuario  </Link></li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    {/* Dentro de Routes, hay una Route que especifica que cuando la ruta sea "/usuarios", el elemento que se renderizará será Usuario si mostrarUsuario es true, de lo contrario, se renderizará null. */}
-                    <Route path="/usuarios" element = {mostrarUsuario ? <Usuario /> : null} />
+                    {/* Define la ruta para /usuarios y utiliza el componente Usuarios */}
+                    <Route path="/usuarios" element={<Usuarios />} />
+                    <Route path="/usuario" element={<Usuario />} />
                     {/* Otras rutas y componentes */}
                 </Routes>
             </div>
