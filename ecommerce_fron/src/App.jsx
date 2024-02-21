@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Usuarios from "./paginas/usuario/usuarios";
 import Usuario  from "./paginas/usuario/usuario";
-import CrearUsuario  from "./paginas/usuario/nuevo_usuario";
+import CrearUsuario  from "./paginas/usuario/api/crear_usuario_api";
 
 
 function App() {
