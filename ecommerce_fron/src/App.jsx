@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Usuarios from "./paginas/usuario/usuarios";
 import Usuario  from "./paginas/usuario/usuario";
+import CrearUsuario  from "./paginas/usuario/nuevo_usuario";
 
 
 function App() {
@@ -12,15 +13,18 @@ function App() {
                 <nav>
                     <ul>
                         <li><Link to="/"> Inicio </Link></li>
-                        <li><Link to="/usuarios"> Usuarios </Link></li>
+                        {/* <li><Link to="/usuarios"> Usuarios </Link></li> */}
                         <li><Link to="/usuario "> Usuario  </Link></li>
+                        <li><Link to="/crearUsuario "> CrearUsuario  </Link></li>
+
                     </ul>
                 </nav>
 
                 <Routes>
                     {/* Define la ruta para /usuarios y utiliza el componente Usuarios */}
-                    <Route path="/usuarios" element={<Usuarios />} />
+                    {/* <Route path="/usuarios" element={<Usuarios />} /> */}
                     <Route path="/usuario" element={<Usuario />} />
+                    <Route path="/crearUsuario" element={<CrearUsuario />} />
                     {/* Otras rutas y componentes */}
                 </Routes>
             </div>
