@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { usuarios_api } from "../api/usuarios_api";
 
 function Usuarios() {
@@ -25,6 +26,7 @@ function Usuarios() {
                             <h3> Nombre de usuario : {output.nombre_de_usuario}</h3>
                             <h4> ID : {output.id}</h4>
                             <h4> Email : {output.correo}</h4>
+                            <li><Link to={{pathname: `/usuario/${output.id}`}} > Mas  </Link></li>
                             <hr />
                         </div>
                     </div>

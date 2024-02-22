@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Usuarios from "./paginas/usuario/componentes/usuarios_from";
 import Usuario  from "./paginas/usuario/usuario";
-import CrearUsuario  from "./paginas/usuario/api/crear_usuario_api";
+import CrearUsuario  from "./paginas/usuario/componentes/crear_usuario";
 
 
 function App() {
@@ -22,10 +22,12 @@ function App() {
 
                 <Routes>
                     {/* Define la ruta para /usuarios y utiliza el componente Usuarios */}
+                    <Route path="/crearUsuario" element={<CrearUsuario />} />
+
                     <Route path="/usuarios" element={<Usuarios />} />
                     <Route path="/usuario" element={<Usuario />} />
+                    <Route path="/usuario/:id_id" element={<Usuario />} />
 
-                    <Route path="/crearUsuario" element={<CrearUsuario />} />
                     {/* Otras rutas y componentes */}
                 </Routes>
             </div>
