@@ -1,6 +1,7 @@
 import React from "react";
 
-const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) => {
+
+const CrearUsuarioForm = ({ usuario, input_form, boton_crear }) => {
     // Retorna la estructura del componente, que es un formulario para crear un nuevo usuario.
     return (
         <div>
@@ -12,7 +13,7 @@ const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) =>
                     type="text"
                     name="nombre_usuario"
                     value={usuario.nombre_usuario}
-                    onChange={handleInputChange}
+                    onChange={input_form}
                 />
             </div>
             <div>
@@ -21,7 +22,7 @@ const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) =>
                     type="text"
                     name="email"
                     value={usuario.email}
-                    onChange={handleInputChange}
+                    onChange={input_form}
                 />
             </div>
             <div>
@@ -30,7 +31,7 @@ const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) =>
                     type="text"
                     name="nombre"
                     value={usuario.nombre}
-                    onChange={handleInputChange}
+                    onChange={input_form}
                 />
             </div>
             <div>
@@ -39,7 +40,7 @@ const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) =>
                     type="text"
                     name="apellido"
                     value={usuario.apellido}
-                    onChange={handleInputChange}
+                    onChange={input_form}
                 />
             </div>
             <div>
@@ -48,11 +49,11 @@ const CrearUsuarioForm = ({ usuario, handleInputChange, handleCrearUsuario }) =>
                     type="password"
                     name="password"
                     value={usuario.password}
-                    onChange={handleInputChange}
+                    onChange={input_form}
                 />
             </div>
-            {/* El botón "Crear Usuario" llama a la función 'handleCrearUsuario' cuando se hace clic. */}
-            <button onClick={handleCrearUsuario}>Crear Usuario</button>
+            {/* El botón "Crear Usuario" llama a la función 'boton_crear' cuando se hace clic. */}
+            <button onClick={boton_crear}>Crear Usuario</button>
         </div>
     );
 };
