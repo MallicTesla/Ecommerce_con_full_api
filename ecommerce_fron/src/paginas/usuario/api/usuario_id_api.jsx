@@ -1,8 +1,9 @@
 import axios from "axios";
+import { USUARIO_API_URL } from "../../../urls_base";
 
 export const obtenerUsuarioPorId = async (usuarioId) => {
     try {
-        const response = await axios.get(`http://127.0.0.1:8000/usuario/usuario/${usuarioId}/`);
+        const response = await axios.get (`${USUARIO_API_URL}${usuarioId}/`);
         return response.data;
     } catch (error) {
         console.error("Error al obtener usuario:", error.response.data);

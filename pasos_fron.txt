@@ -35,7 +35,7 @@ npx create-react-app (ecommerce_fron)
 02) instalar la libreria AXIOS que manega las peticiones HTTP al servidor
 npm install axios
 
-03) en powershell prova el servidor riact con
+03) en powershell proba el servidor riact con
 npm start
 
 04) y ya podes comensar a trabajar podes inisiar por apps
