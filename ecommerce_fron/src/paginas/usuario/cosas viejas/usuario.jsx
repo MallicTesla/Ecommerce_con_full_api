@@ -13,7 +13,7 @@ function Usuario () {
     useEffect (( ) => { 
         if (id_id) {
             obtenerUsuarioPorId (id_id);
-        } 
+        }
     },[id_id] );
     const navigate = useNavigate();
 
@@ -56,7 +56,6 @@ function Usuario () {
                     </div>
                 ))}
             </div>
-            
         </div>
     );
 }

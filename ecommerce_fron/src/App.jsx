@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Usuarios from "./paginas/usuario/componentes/usuarios_from";
-import Usuario  from "./paginas/usuario/usuario";
+import Usuario  from "./paginas/usuario/componentes/usuario_comp";
 import CrearUsuario  from "./paginas/usuario/componentes/crear_usuario";
 
 
