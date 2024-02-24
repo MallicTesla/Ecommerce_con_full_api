@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { obtenerUsuarioPorId } from "../api/usuario_id_api";
+import ActualizarUsuario from "./actualizar_usuario";
+
 
 function UsuarioComponente() {
     const [detalles, setDetalles] = useState([]);
     const [usuarioId, setUsuarioId] = useState("");
+    const [mostrarActualizar, setMostrarActualizar] = useState(false);
     const { id_id } = useParams();
     const navigate = useNavigate();
 
@@ -29,20 +32,20 @@ function UsuarioComponente() {
         await cargarUsuario(usuarioId);
     };
 
+    const editar_usuario = () =>{
+        setMostrarActualizar(true);
+    }
+
     return (
         <div>
             <div>
-                <h1>Vista de Usuarios {id_id}</h1>
+                <h1>Vista de Usuarios</h1>
                 <hr />
 
                 <div>
                     <label>ID del Usuario:</label>
-                    <input
-                        type="text"
-                        value={usuarioId}
-                        onChange={(e) => setUsuarioId(e.target.value)}
-                    />
-                    <button onClick={handleClick}>Mostrar Usuario por ID</button>
+                    <input type = "text" value = {usuarioId} onChange = {(e) => setUsuarioId (e.target.value)} />
+                    <button onClick = {handleClick}>Mostrar Usuario por ID</button>
                 </div>
                 <hr />
             </div>
@@ -62,6 +65,17 @@ function UsuarioComponente() {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div>
+                <div>
+                    <button onClick = {editar_usuario}> Editar usuario </button>
+                </div>
+                <hr />
+
+                <div>
+                    {mostrarActualizar && <ActualizarUsuario usuarioId = {id_id} />}
+                </div>
             </div>
         </div>
     );
