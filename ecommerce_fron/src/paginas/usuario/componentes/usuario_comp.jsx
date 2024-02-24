@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
 import { obtenerUsuarioPorId } from "../api/usuario_id_api";
 import ActualizarUsuario from "./actualizar_usuario";
 

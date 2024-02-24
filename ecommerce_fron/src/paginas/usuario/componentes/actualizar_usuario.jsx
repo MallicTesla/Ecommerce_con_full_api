@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import ActualizarUsuarioForm from "./actualizar_usuario_form";
-import { obtenerUsuarioPorId, actualizarUsuario } from "../api/actualizar_usuario_api";
+import { obtenerUsuarioPorId } from "../api/usuario_id_api";
+import { actualizarUsuario } from "../api/actualizar_usuario_api";
 
 const ActualizarUsuario = ({ usuarioId }) => {
     const [usuario, setUsuario] = useState({
@@ -13,13 +15,13 @@ const ActualizarUsuario = ({ usuarioId }) => {
 
     useEffect(() => {
         const cargarUsuario = async () => {
-        try {
-            const data = await obtenerUsuarioPorId (usuarioId);
-            setUsuario(data);
+            try {
+                const data = await obtenerUsuarioPorId (usuarioId);
+                setUsuario(data);
 
-        } catch (error) {
-            // Manejar el error si es necesario
-        }
+            } catch (error) {
+                // Manejar el error si es necesario
+            }
         };
 
         cargarUsuario();
