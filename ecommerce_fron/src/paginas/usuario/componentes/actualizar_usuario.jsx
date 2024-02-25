@@ -4,7 +4,8 @@ import ActualizarUsuarioForm from "./actualizar_usuario_form";
 import { obtenerUsuarioPorId } from "../api/usuario_id_api";
 import { actualizarUsuario } from "../api/actualizar_usuario_api";
 
-const ActualizarUsuario = ({ usuarioId }) => {
+
+const ActualizarUsuario = ({ usuarioId, onActualizarUsuario }) => {
     const [usuario, setUsuario] = useState({
         nombre_usuario: "",
         email: "",
@@ -12,6 +13,7 @@ const ActualizarUsuario = ({ usuarioId }) => {
         apellido: "",
         password: "",
     });
+
 
     useEffect(() => {
         const cargarUsuario = async () => {
@@ -27,14 +29,23 @@ const ActualizarUsuario = ({ usuarioId }) => {
         cargarUsuario();
     }, [usuarioId]);
 
+
     const handleInputChange = (e) => {
         setUsuario ({ ...usuario, [e.target.name]: e.target.value });
     };
 
+
     const handleActualizarUsuario = async () => {
-        await actualizarUsuario (usuarioId, usuario);
-        // Puedes redirigir a otra página después de la actualización si es necesario.
+        try {
+            await actualizarUsuario(usuarioId, usuario);
+            // Actualización exitosa, establece el estado actualizacionExitosa en true
+            onActualizarUsuario();
+        } catch (error) {
+            // Manejar el error si es necesario
+        }
     };
+
+
 
     return (
         <ActualizarUsuarioForm
@@ -44,5 +55,6 @@ const ActualizarUsuario = ({ usuarioId }) => {
         />
     );
 };
+
 
 export default ActualizarUsuario;

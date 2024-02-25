@@ -7,35 +7,47 @@ import ActualizarUsuario from "./actualizar_usuario";
 
 
 function UsuarioComponente() {
-    const [detalles, setDetalles] = useState([]);
-    const [usuarioId, setUsuarioId] = useState("");
-    const [mostrarActualizar, setMostrarActualizar] = useState(false);
+    const [detalles, setDetalles] = useState ([]);
+    const [usuarioId, setUsuarioId] = useState ("");
+    const [mostrarActualizar, setMostrarActualizar] = useState (false);
     const { id_id } = useParams();
     const navigate = useNavigate();
 
-    useEffect(() => {
+
+    useEffect (() => {
         if (id_id) {
-        cargarUsuario(id_id);
+        cargarUsuario (id_id);
         }
     }, [id_id]);
 
+
     const cargarUsuario = async (id) => {
         try {
-        const data = await obtenerUsuarioPorId(id);
-        setDetalles([data]);
+            const data = await obtenerUsuarioPorId (id);
+            setDetalles ([data]);
         } catch (error) {
         // Manejar el error si es necesario
         }
     };
 
+
     const handleClick = async () => {
-        navigate("/usuario/" + usuarioId);
-        await cargarUsuario(usuarioId);
+        navigate ("/usuario/" + usuarioId);
+        await cargarUsuario (usuarioId);
     };
 
+
     const editar_usuario = () =>{
-        setMostrarActualizar(true);
+        setMostrarActualizar (true);
     }
+
+
+    const onActualizarUsuario = async () => {
+        const updatedUser = await obtenerUsuarioPorId (id_id);
+        setDetalles ([updatedUser]);
+        setMostrarActualizar (false);
+    };
+
 
     return (
         <div>
@@ -75,7 +87,9 @@ function UsuarioComponente() {
                 <hr />
 
                 <div>
-                    {mostrarActualizar && <ActualizarUsuario usuarioId = {id_id} />}
+                    {mostrarActualizar && <ActualizarUsuario
+                        usuarioId = {id_id}
+                        onActualizarUsuario = {onActualizarUsuario} />}
                 </div>
             </div>
         </div>
