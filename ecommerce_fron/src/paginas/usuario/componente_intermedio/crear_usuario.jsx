@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import CrearUsuarioForm from "./crear_usuario_form";
+import CrearUsuarioForm from "../componentes/crear_usuario_form";
 import boton_crear from "../api/crear_usuario_api"
 
 

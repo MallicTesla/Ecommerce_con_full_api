@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import ActualizarUsuarioForm from "./actualizar_usuario_form";
+import ActualizarUsuarioForm from "../componentes/actualizar_usuario_form";
 import { obtenerUsuarioPorId } from "../api/usuario_id_api";
 import { actualizarUsuario } from "../api/actualizar_usuario_api";
 
