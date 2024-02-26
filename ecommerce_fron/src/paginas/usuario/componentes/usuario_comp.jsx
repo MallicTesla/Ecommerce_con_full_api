@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 import { obtenerUsuarioPorId } from "../api/usuario_id_api";
-import ActualizarUsuario from "./actualizar_usuario";
+import { borrar_usuario } from "../api/borrar_usuario"
+import ActualizarUsuario from "../componente_intermedio/actualizar_usuario";
 
 
 function UsuarioComponente() {
@@ -40,6 +41,24 @@ function UsuarioComponente() {
     const editar_usuario = () =>{
         setMostrarActualizar (true);
     }
+
+
+    const borrarUsuarioHandler = () => {
+        const confirmacion = window.confirm("¿Estás seguro de que quieres borrar este usuario?");
+        if (confirmacion) {
+            borrarUsuario();
+        }
+    };
+
+    const borrarUsuario = async () => {
+        try {
+            await borrar_usuario(id_id);
+            // Redirige a la página de lista de usuarios u otra página deseada después de borrar
+            navigate("/usuarios");
+        } catch (error) {
+            // Manejar el error si es necesario
+        }
+    };
 
 
     const onActualizarUsuario = async () => {
@@ -83,6 +102,7 @@ function UsuarioComponente() {
             <div>
                 <div>
                     <button onClick = {editar_usuario}> Editar usuario </button>
+                    <button onClick={borrarUsuarioHandler}>Borrar usuario</button>
                 </div>
                 <hr />
 
