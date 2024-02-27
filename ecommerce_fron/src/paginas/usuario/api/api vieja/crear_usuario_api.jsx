@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { USUARIO_API_URL } from "../../../urls_base";
+import { USUARIO_API_URL } from "../../../../urls_base";
 
 
 // Declara una función 'boton_crear' que se ejecuta cuando se hace clic en el botón "Crear Usuario".

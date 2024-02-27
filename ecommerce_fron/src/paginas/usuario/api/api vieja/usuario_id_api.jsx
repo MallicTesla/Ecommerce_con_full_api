@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USUARIO_API_URL } from "../../../urls_base";
+import { USUARIO_API_URL } from "../../../../urls_base";
 
 export const obtenerUsuarioPorId = async (usuarioId) => {
     try {

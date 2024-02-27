@@ -44,7 +44,7 @@ function UsuarioComponente() {
 
 
     const borrarUsuarioHandler = () => {
-        const confirmacion = window.confirm("¿Estás seguro de que quieres borrar este usuario?");
+        const confirmacion = window.confirm ("¿Estás seguro de que quieres borrar este usuario?");
         if (confirmacion) {
             borrarUsuario();
         }
@@ -52,9 +52,9 @@ function UsuarioComponente() {
 
     const borrarUsuario = async () => {
         try {
-            await borrar_usuario(id_id);
+            await borrar_usuario (id_id);
             // Redirige a la página de lista de usuarios u otra página deseada después de borrar
-            navigate("/usuarios");
+            navigate ("/usuarios");
         } catch (error) {
             // Manejar el error si es necesario
         }
@@ -85,8 +85,8 @@ function UsuarioComponente() {
             <div>
                 <h2>Usuario</h2>
                 <hr />
-                {detalles.map((output, id) => (
-                    <div key={id}>
+                {detalles.map ((output, id) => (
+                    <div key = {id}>
                         <div>
                             <h3>Nombre de usuario: {output.nombre_usuario}</h3>
                             <h4>ID: {output.id}</h4>
@@ -102,7 +102,7 @@ function UsuarioComponente() {
             <div>
                 <div>
                     <button onClick = {editar_usuario}> Editar usuario </button>
-                    <button onClick={borrarUsuarioHandler}>Borrar usuario</button>
+                    <button onClick={borrarUsuarioHandler}> Borrar usuario </button>
                 </div>
                 <hr />
 

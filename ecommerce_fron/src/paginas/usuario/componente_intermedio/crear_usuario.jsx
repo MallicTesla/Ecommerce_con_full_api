@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 import CrearUsuarioForm from "../componentes/crear_usuario_form";
-import boton_crear from "../api/crear_usuario_api"
+import { boton_crear } from "../api/api";
+// import boton_crear from "../api/crear_usuario_api";
 
 
 // Declara el componente funcional CrearUsuario.

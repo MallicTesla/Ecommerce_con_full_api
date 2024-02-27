@@ -1,10 +1,9 @@
-// UsuarioComponente.jsx
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-import { obtenerUsuarioPorId } from "../api/usuario_id_api";
+import { obtenerUsuarioPorId } from "../api/api";
+
 import ActualizarUsuario from "../componente_intermedio/actualizar_usuario";
 import Borrar_Usuario from "../componente_intermedio/borrar_usuario"; 
 
@@ -12,38 +11,38 @@ import Borrar_Usuario from "../componente_intermedio/borrar_usuario";
 function UsuarioComponente() {
     const [detalles, setDetalles] = useState([]);
     const [usuarioId, setUsuarioId] = useState("");
-    const [mostrarActualizar, setMostrarActualizar] = useState(false);
+    const [mostrarActualizar, setMostrarActualizar] = useState (false);
     const { id_id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (id_id) {
-            cargarUsuario(id_id);
+            cargarUsuario (id_id);
         }
     }, [id_id]);
 
     const cargarUsuario = async (id) => {
         try {
-            const data = await obtenerUsuarioPorId(id);
-            setDetalles([data]);
+            const data = await obtenerUsuarioPorId (id);
+            setDetalles ([data]);
         } catch (error) {
             // Manejar el error si es necesario
         }
     };
 
     const handleClick = async () => {
-        navigate("/usuario/" + usuarioId);
-        await cargarUsuario(usuarioId);
+        navigate ("/usuario/" + usuarioId);
+        await cargarUsuario (usuarioId);
     };
 
     const editar_usuario = () => {
-        setMostrarActualizar(true);
+        setMostrarActualizar (true);
     };
 
     const onActualizarUsuario = async () => {
-        const updatedUser = await obtenerUsuarioPorId(id_id);
-        setDetalles([updatedUser]);
-        setMostrarActualizar(false);
+        const updatedUser = await obtenerUsuarioPorId (id_id);
+        setDetalles ([updatedUser]);
+        setMostrarActualizar (false);
     };
 
     return (
@@ -79,14 +78,14 @@ function UsuarioComponente() {
 
             <div>
                 <div>
-                    <button onClick={editar_usuario}> Editar usuario </button>
-                    <Borrar_Usuario usuarioId={id_id} /> {/* Usa el nuevo componente */}
+                    <button onClick = {editar_usuario}> Editar usuario </button>
+                    <Borrar_Usuario usuarioId = {id_id} />
                 </div>
                 <hr />
 
                 <div>
                     {mostrarActualizar && (
-                        <ActualizarUsuario usuarioId={id_id} onActualizarUsuario={onActualizarUsuario} />
+                        <ActualizarUsuario usuarioId = {id_id} onActualizarUsuario = {onActualizarUsuario} />
                     )}
                 </div>
             </div>

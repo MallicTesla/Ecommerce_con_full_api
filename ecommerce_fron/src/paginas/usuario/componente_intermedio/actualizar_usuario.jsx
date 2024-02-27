@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ActualizarUsuarioForm from "../componentes/actualizar_usuario_form";
-import { obtenerUsuarioPorId } from "../api/usuario_id_api";
-import { actualizarUsuario } from "../api/actualizar_usuario_api";
+import { obtenerUsuarioPorId, actualizarUsuario } from "../api/api";
 
 
 const ActualizarUsuario = ({ usuarioId, onActualizarUsuario }) => {
@@ -37,7 +36,7 @@ const ActualizarUsuario = ({ usuarioId, onActualizarUsuario }) => {
 
     const handleActualizarUsuario = async () => {
         try {
-            await actualizarUsuario(usuarioId, usuario);
+            await actualizarUsuario (usuarioId, usuario);
             // Actualización exitosa, establece el estado actualizacionExitosa en true
             onActualizarUsuario();
         } catch (error) {
