@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USUARIO_API_URL } from "../../../urls_base";
+import { USUARIO_API_URL, CAMBIAR_CONTRASEÑA } from "../../../urls_base";
 
 export const enviarPeticion = async (url, metodo, datos = null) => {
     try {
@@ -8,15 +8,23 @@ export const enviarPeticion = async (url, metodo, datos = null) => {
             case "get":
                 respuesta = await axios.get (url);
                 break;
+
             case "post":
                 respuesta = await axios.post (url, datos);
                 break;
+
             case "put":
                 respuesta = await axios.put (url, datos);
                 break;
+
+            case "patch":
+                respuesta = await axios.put (url, datos);
+                break;
+
             case "delete":
                 respuesta = await axios.delete (url);
                 break;
+
             default:
                 throw new Error (`Método HTTP no válido: ${metodo}`);
         }
@@ -46,4 +54,9 @@ export const actualizarUsuario = async (usuarioId, usuario) => {
 export const borrar_usuario = async (usuarioId) => {
     const url = `${USUARIO_API_URL}${usuarioId}/`;
     return enviarPeticion (url, "delete");
+};
+
+export const actualizarContraseña = async (usuarioId, datosContraseña) => {
+    const url = `${USUARIO_API_URL}${usuarioId}/${CAMBIAR_CONTRASEÑA}`;
+    return enviarPeticion(url, "patch", datosContraseña);
 };

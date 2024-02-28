@@ -98,14 +98,17 @@ class UsuarioViwSet (viewsets.GenericViewSet):
     #   va despues de la ruta prinsipal y antes del nombre de esta funcion
     #   (url_path) pones el nombre de la ruta que queres por si no queres que se llame igual que este metodo tamvien se pueden agregar expresiones regulares de esta forma
     #   (methods) elegis el metodo que queres que res usar se pueden colocar varios metodos
-    @action (detail = True, methods = ["PUT"], url_path = "cambiar_contraseña")
+    @action (detail = True, methods = ["PUT"], url_path = "cambiar_pasw")
     def actualizar_contraseña (self,  request:Request, pk=None):
+        print ("viewset")
         usuario = self.get_object(pk)
         contraseña_serializaes = ActualizarContraseñaSerializaes(data = request.data)
 
         if contraseña_serializaes.is_valid():
             usuario.set_password (contraseña_serializaes.validated_data ["password_1"])
             usuario.save()
+
+            print ("quedoooooooooo")
 
             return Response ({"Mensage":"contraseña actualizada corectamente"})
         return Response ({"Mensage":"Hay errores en la informacion enviada", "Error":contraseña_serializaes.errors}, status = status.HTTP_400_BAD_REQUEST)
