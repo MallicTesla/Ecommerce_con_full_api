@@ -36,6 +36,7 @@ export const enviarPeticion = async (url, metodo, datos = null) => {
     }
 };
 
+
 export const obtenerUsuarioPorId = async (usuarioId) => {
     const url = `${USUARIO_API_URL}${usuarioId}/`;
     return enviarPeticion (url, "get");

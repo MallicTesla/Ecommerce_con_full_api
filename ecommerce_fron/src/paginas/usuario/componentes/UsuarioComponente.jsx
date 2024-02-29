@@ -12,6 +12,7 @@ import CambiarContraseña from "../componente_intermedio/cambiar_contraseña";
 function UsuarioComponente() {
     const [detalles, setDetalles] = useState([]);
     const [usuarioId, setUsuarioId] = useState("");
+    const [error, setError] = useState (null);
     const [mostrarActualizar, setMostrarActualizar] = useState (false);
     const [mostrarCambiarContraseña, setMostrarCambiarContraseña] = useState(false); // Nuevo estado para controlar la visibilidad del componente CambiarContraseña
     const { id_id } = useParams();
@@ -28,7 +29,7 @@ function UsuarioComponente() {
             const data = await obtenerUsuarioPorId (id);
             setDetalles ([data]);
         } catch (error) {
-            // Manejar el error si es necesario
+            setError ("No se han podido cargar los usuarios");
         }
     };
 
@@ -81,6 +82,8 @@ function UsuarioComponente() {
                         </div>
                     </div>
                 ))}
+
+                {error && <p style = {{ color: "red" }}> {error} </p>}
             </div>
 
             <div>
@@ -93,15 +96,12 @@ function UsuarioComponente() {
                 <div>
                     {mostrarActualizar && (
                         <div>
-                        
+
                             <ActualizarUsuario usuarioId = {id_id} onActualizarUsuario = {onActualizarUsuario} />
-
-
-
 
                             <button onClick={() => setMostrarCambiarContraseña(!mostrarCambiarContraseña)}> Cambiar Contraseña </button>
                             {mostrarCambiarContraseña && (
-                                <CambiarContraseña usuarioId={id_id} onContraseñaActualizada={handleContraseñaActualizada} />
+                                <CambiarContraseña usuarioId = {id_id} onContraseñaActualizada = {handleContraseñaActualizada} />
                             )}
                         </div>
 
