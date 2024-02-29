@@ -100,15 +100,12 @@ class UsuarioViwSet (viewsets.GenericViewSet):
     #   (methods) elegis el metodo que queres que res usar se pueden colocar varios metodos
     @action (detail = True, methods = ["PUT"], url_path = "cambiar_pasw")
     def actualizar_contraseña (self,  request:Request, pk=None):
-        print ("viewset")
         usuario = self.get_object(pk)
         contraseña_serializaes = ActualizarContraseñaSerializaes(data = request.data)
 
         if contraseña_serializaes.is_valid():
             usuario.set_password (contraseña_serializaes.validated_data ["password_1"])
             usuario.save()
-
-            print ("quedoooooooooo")
 
             return Response ({"Mensage":"contraseña actualizada corectamente"})
         return Response ({"Mensage":"Hay errores en la informacion enviada", "Error":contraseña_serializaes.errors}, status = status.HTTP_400_BAD_REQUEST)
