@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import CrearUsuarioForm from "../componentes/crear_usuario_form";
 import { boton_crear } from "../api/api";
-// import boton_crear from "../api/crear_usuario_api";
+import MensajeModal from "../../mensajes/creado_corectamente";
 
 
 // Declara el componente funcional CrearUsuario.
@@ -15,6 +15,8 @@ const CrearUsuario = () => {
         apellido: "",
         password: "",
     });
+    const [mensaje, setMensaje] = useState("");
+    const [mostrarModal, setMostrarModal] = useState(false);
 
     // Declara una función 'input_form' que se ejecuta cuando hay cambios en los campos de entrada del formulario.
     const input_form = (e) => {
@@ -22,12 +24,43 @@ const CrearUsuario = () => {
         setUsuario({ ...usuario, [e.target.name]: e.target.value });
     };
 
+    // Función para manejar la creación del usuario
+    const handleCrearUsuario = async () => {
+        try {
+            await boton_crear(usuario);
+            // Actualiza el mensaje después de una creación exitosa
+            setMensaje("Usuario creado exitosamente.");
+            setMostrarModal(true);
+
+            
+        // Ocultar el modal después de 3 segundos (3000 milisegundos)
+        setTimeout(() => {
+            setMostrarModal(false);
+            setMensaje("");
+        }, 3000);
+            } catch (error) {
+                console.error('Error al crear el usuario:', error.response.status);
+                // Puedes manejar otros casos de error aquí si es necesario
+        }
+    };
+
+    const handleCloseModal = () => {
+        setMostrarModal(false);
+        setMensaje("");
+    };
+
     return (
-        <CrearUsuarioForm
-            usuario = {usuario}
-            input_form = {input_form}
-            boton_crear = {() => boton_crear (usuario)}
-        />
+        <div>
+            <CrearUsuarioForm
+                usuario = {usuario}
+                input_form = {input_form}
+                boton_crear = {handleCrearUsuario}
+            />
+
+            {mostrarModal && (
+                <MensajeModal mensaje={mensaje} onClose={handleCloseModal} />
+            )}
+        </div>
     );
 };
 
