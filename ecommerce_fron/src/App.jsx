@@ -11,12 +11,21 @@ function App() {
         <Router>
             <div>
                 <nav>
+                    {/* inicio */}
                     <ul>
                         <li><Link to="/"> Inicio </Link></li>
+                    </ul>
+
+                    {/* usuariao */}
+                    <ul>
                         <li><Link to="/usuarios"> Usuarios </Link></li>
                         <li><Link to="/usuario "> Usuario  </Link></li>
                         <li><Link to="/crearUsuario "> CrearUsuario  </Link></li>
+                    </ul>
 
+                    {/* productos */}
+                    <ul>
+                        <li><Link to="/productos "> Productos </Link></li>
                     </ul>
                 </nav>
 
