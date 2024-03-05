@@ -1,16 +1,18 @@
+import "./App.css"
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Usuarios from "./paginas/usuario/componentes/usuarios_from";
 import Usuario  from "./paginas/usuario/componentes/UsuarioComponente";
 import CrearUsuario  from "./paginas/usuario/componente_intermedio/crear_usuario";
 
+import Productos from "./paginas/productos/componentes/productos";
 
 function App() {
 
     return (
         <Router>
             <div>
-                <nav>
+                <nav className="nav">
                     {/* inicio */}
                     <ul>
                         <li><Link to="/"> Inicio </Link></li>
@@ -18,26 +20,26 @@ function App() {
 
                     {/* usuariao */}
                     <ul>
-                        <li><Link to="/usuarios"> Usuarios </Link></li>
-                        <li><Link to="/usuario "> Usuario  </Link></li>
-                        <li><Link to="/crearUsuario "> CrearUsuario  </Link></li>
+                        <li><Link to = "/usuarios"> Usuarios </Link></li>
+                        <li><Link to = "/usuario "> Usuario  </Link></li>
+                        <li><Link to = "/crearUsuario "> CrearUsuario  </Link></li>
                     </ul>
 
                     {/* productos */}
                     <ul>
-                        <li><Link to="/productos "> Productos </Link></li>
+                        <li><Link to = "/productos "> Productos </Link></li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    {/* Define la ruta para /usuarios y utiliza el componente Usuarios */}
-                    <Route path="/crearUsuario" element={<CrearUsuario />} />
+                    {/* usuario */}
+                    <Route path = "/crearUsuario" element = {<CrearUsuario />} />
+                    <Route path = "/usuarios" element = {<Usuarios />} />
+                    <Route path = "/usuario" element = {<Usuario />} />
+                    <Route path = "/usuario/:id_id" element = {<Usuario />} />
 
-                    <Route path="/usuarios" element={<Usuarios />} />
-                    <Route path="/usuario" element={<Usuario />} />
-                    <Route path="/usuario/:id_id" element={<Usuario />} />
-
-                    {/* Otras rutas y componentes */}
+                    productos
+                    <Route path = "/productos" element = {<Productos />} />                      {/* Otras rutas y componentes */}
                 </Routes>
             </div>
         </Router>

@@ -45,27 +45,27 @@ export const optener_lista = async () => {
     return enviarPeticion (url, "optener_lista")
 }
 
-export const obtenerUsuarioPorId = async (usuarioId) => {
-    const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
-    return enviarPeticion (url, "get");
-};
+// export const obtenerUsuarioPorId = async (usuarioId) => {
+//     const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
+//     return enviarPeticion (url, "get");
+// };
 
-export const boton_crear = async (usuario) => {
-    const url = PRODUCTOS_API_URL;
-    return enviarPeticion (url, "post", usuario);
-};
+// export const boton_crear = async (usuario) => {
+//     const url = PRODUCTOS_API_URL;
+//     return enviarPeticion (url, "post", usuario);
+// };
 
-export const actualizarUsuario = async (usuarioId, usuario) => {
-    const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
-    return enviarPeticion (url, "put", usuario);
-};
+// export const actualizarUsuario = async (usuarioId, usuario) => {
+//     const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
+//     return enviarPeticion (url, "put", usuario);
+// };
 
-export const borrar_usuario = async (usuarioId) => {
-    const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
-    return enviarPeticion (url, "delete");
-};
+// export const borrar_usuario = async (usuarioId) => {
+//     const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
+//     return enviarPeticion (url, "delete");
+// };
 
-export const actualizarContraseña = async (usuarioId, datosContraseña) => {
-    const url = `${PRODUCTOS_API_URL}${usuarioId}/${CAMBIAR_CONTRASEÑA}`;
-    return enviarPeticion(url, "patch", datosContraseña);
-};
+// export const actualizarContraseña = async (usuarioId, datosContraseña) => {
+//     const url = `${PRODUCTOS_API_URL}${usuarioId}/`;
+//     return enviarPeticion(url, "patch", datosContraseña);
+// };
