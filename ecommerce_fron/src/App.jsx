@@ -6,6 +6,7 @@ import Usuario  from "./paginas/usuario/componentes/UsuarioComponente";
 import CrearUsuario  from "./paginas/usuario/componente_intermedio/crear_usuario";
 
 import Productos from "./paginas/productos/componentes/productos";
+import CrearProducto from "./paginas/productos/componente_intermedio/agregar_producto"
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                     {/* productos */}
                     <ul>
                         <li><Link to = "/productos "> Productos </Link></li>
+                        <li><Link to = "/CrearProducto"> Crear producto </Link></li>
                     </ul>
                 </nav>
 
@@ -39,7 +41,8 @@ function App() {
                     <Route path = "/usuario/:id_id" element = {<Usuario />} />
 
                     productos
-                    <Route path = "/productos" element = {<Productos />} />                      {/* Otras rutas y componentes */}
+                    <Route path = "/productos" element = {<Productos />} />
+                    <Route path = "/CrearProducto" element = {<CrearProducto />}/>                      {/* Otras rutas y componentes */}
                 </Routes>
             </div>
         </Router>
