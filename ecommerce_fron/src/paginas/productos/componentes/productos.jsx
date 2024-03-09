@@ -28,7 +28,7 @@ function Productos() {
                             <h4> Unidad de medida : {output.unidad_medida} </h4>
                             <h4> Categoria del producto : {output.categoria_producto} </h4>
 
-                            <li><Link to = {{pathname: `/usuario/${output.id}`}} > Mas  </Link></li>
+                            <li><Link to = {{pathname: `/usuario/${output.id}` }} > Mas  </Link></li>
                             <hr />
                         </div>
                     </div>
