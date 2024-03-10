@@ -1,3 +1,6 @@
+00) instalar la libreria para le gestion de imagenes
+python -m pip install Pillow
+
 01) crear los modelos
 Producto
 UnidadMedida

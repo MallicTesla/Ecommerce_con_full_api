@@ -82,7 +82,7 @@ class Producto(BaseModel):
     # vendedor = 
     # comprador = 
     
-    # imagen_producto = models.ImageField("Imagen del producto", upload_to="productos_imagen/", blank = True, null = True)
+    imagen_producto = models.ImageField("Imagen del producto", upload_to="productos_imagen/", blank = True, null = True)
 
     unidad_medida = models.ForeignKey (UnidadMedida, on_delete = models.CASCADE, verbose_name = "Unidad de medida", null = True)
     categoria_producto = models.ForeignKey (CategoriaProducto,on_delete = models.CASCADE, verbose_name = "Categoria del producto", null = True)
