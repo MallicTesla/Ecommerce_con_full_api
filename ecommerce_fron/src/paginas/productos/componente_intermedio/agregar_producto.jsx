@@ -26,26 +26,26 @@ const CrearProducto = () => {
     // Función para manejar la creación del producto
     const handleCrearProducto = async () => {
         try {
-            await boton_crear(producto);
+            await boton_crear (producto);
             // Actualiza el mensaje después de una creación exitosa
-            setMensaje("Usuario creado exitosamente.");
-            setMostrarModal(true);
+            setMensaje ("Usuario creado exitosamente.");
+            setMostrarModal (true);
 
             
         // Ocultar el modal después de 3 segundos (3000 milisegundos)
-        setTimeout(() => {
-            setMostrarModal(false);
-            setMensaje("");
+        setTimeout (() => {
+            setMostrarModal (false);
+            setMensaje ("");
         }, 3000);
             } catch (error) {
-                console.error('Error al crear el producto:', error.response.status);
+                console.error ('Error al crear el producto:', error.response.status);
                 // Puedes manejar otros casos de error aquí si es necesario
         }
     };
 
     const handleCloseModal = () => {
-        setMostrarModal(false);
-        setMensaje("");
+        setMostrarModal (false);
+        setMensaje ("");
     };
 
     return (
@@ -57,7 +57,7 @@ const CrearProducto = () => {
             />
 
             {mostrarModal && (
-                <MensajeModal mensaje={mensaje} onClose={handleCloseModal} />
+                <MensajeModal mensaje = {mensaje} onClose = {handleCloseModal} />
             )}
         </div>
     );
