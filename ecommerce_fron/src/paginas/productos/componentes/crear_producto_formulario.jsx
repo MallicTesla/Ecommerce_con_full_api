@@ -10,52 +10,62 @@ const CrearProductoForm = ({ producto, input_form, boton_crear }) => {
             <div>
                 <label> Producto : </label>
                 <input
-                    type="text"
-                    name="producto"
-                    value={producto.producto}
-                    onChange={input_form}
+                    type = "text"
+                    name = "producto"
+                    value = {producto.producto}
+                    onChange = {input_form}
                 />
             </div>
 
             <div>
                 <label> Descripcion producto : </label>
                 <textarea
-                    name="descripcion_producto"
-                    value={producto.descripcion_producto}
-                    onChange={input_form}
+                    name = "descripcion_producto"
+                    value = {producto.descripcion_producto}
+                    onChange = {input_form}
                 />
             </div>
 
             <div>
-                <label>Unidad de medida:</label>
+                <label> Unidad de medida : </label>
                 <select
-                    name="unidad_medida"
-                    value={producto.unidad_medida}
-                    onChange={input_form}
+                    name = "unidad_medida"
+                    value = {producto.unidad_medida}
+                    onChange = {input_form}
                 >
 
-                    <option value="kilogramos">Kilogramos</option>
-                    <option value="litros">Litros</option>
-                    <option value="piezas">Piezas</option>
+                    <option value = "kilogramos"> Kilogramos </option>
+                    <option value = "litros"> Litros </option>
+                    <option value = {1} > 1 </option>
                 </select>
             </div>
 
             <div>
-                <label>Categoria producto:</label>
+                <label> Categoria producto : </label>
                 <select
-                    name="categoria_producto"
-                    value={producto.categoria_producto}
-                    onChange={input_form}
+                    name = "categoria_producto"
+                    value = {producto.categoria_producto}
+                    onChange = {input_form}
                 >
 
-                    <option value="electronicos">Electrónicos</option>
-                    <option value="ropa">Ropa</option>
-                    <option value="alimentos">Alimentos</option>
+                    <option value = "electronicos">Electrónicos</option>
+                    <option value = "ropa">Ropa</option>
+                    <option value = {1}>1</option>
                 </select>
             </div>
 
+            <div>
+                <label> Imagen : </label>
+                <input
+                    type = "text"
+                    name = "imagen_producto"
+                    value = {producto.imagen_producto}
+                    onChange = {input_form}
+                />
+            </div>
+
             {/* El botón "Crear Producto" llama a la función 'boton_crear' cuando se hace clic. */}
-            <button onClick={boton_crear}>Crear Producto</button>
+            <button onClick = {boton_crear}>Crear Producto</button>
         </div>
     );
 };

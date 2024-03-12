@@ -25,6 +25,7 @@ function Productos() {
                         <div>
                             <h3> Nombre del producto : {output.producto} </h3>
                             <h4> ID : {output.id} </h4>
+                            <h4> descripcion : {output.descripcion_producto}</h4>
                             <h4> Unidad de medida : {output.unidad_medida} </h4>
                             <h4> Categoria del producto : {output.categoria_producto} </h4>
 
