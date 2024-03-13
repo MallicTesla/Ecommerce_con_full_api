@@ -6,3 +6,6 @@ export const CAMBIAR_CONTRASEÑA = `cambiar_pasw/`;
 
 // productos
 export const PRODUCTOS_API_URL = `${API_BASE_URL}productos/productos/`;
+
+// unidad medida
+export const UNIDAD_MEDIDA_API_URL = `${API_BASE_URL}productos/unidad_medidas/`

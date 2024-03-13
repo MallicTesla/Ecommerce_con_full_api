@@ -8,6 +8,9 @@ import CrearUsuario  from "./paginas/usuario/componente_intermedio/crear_usuario
 import Productos from "./paginas/productos/componentes/productos";
 import CrearProducto from "./paginas/productos/componente_intermedio/agregar_producto"
 
+import UnidadesMedida from "./paginas/unidad_medida/componentes/unidades_medidas";
+
+
 function App() {
 
     return (
@@ -31,6 +34,12 @@ function App() {
                         <li><Link to = "/productos "> Productos </Link></li>
                         <li><Link to = "/CrearProducto"> Crear producto </Link></li>
                     </ul>
+
+                    {/* productos */}
+                    <ul>
+                        <li><Link to = "/unidades_medidas" > Undidades de medidas </Link></li>
+                    </ul>
+
                 </nav>
 
                 <Routes>
@@ -40,9 +49,13 @@ function App() {
                     <Route path = "/usuario" element = {<Usuario />} />
                     <Route path = "/usuario/:id_id" element = {<Usuario />} />
 
-                    productos
+                    {/* productos */}
                     <Route path = "/productos" element = {<Productos />} />
-                    <Route path = "/CrearProducto" element = {<CrearProducto />}/>                      {/* Otras rutas y componentes */}
+                    <Route path = "/CrearProducto" element = {<CrearProducto />}/>
+
+                    {/* unidad_medida */}
+                    <Route path = "/unidades_medidas" element = {<UnidadesMedida />} />
+
                 </Routes>
             </div>
         </Router>
