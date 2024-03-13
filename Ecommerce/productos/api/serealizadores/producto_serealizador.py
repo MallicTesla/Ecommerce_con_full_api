@@ -23,31 +23,34 @@ class ProductoSerealizera (serializers.ModelSerializer):
     def validate_unidad_medida (self, value):
         if value == "" or value == None:
             raise serializers.ValidationError("Deves ingresar una Unidad de Mendida")
+
         return value
 
     #   valida si pusistes una categoria al producto-esto lo valida pero no lo hace obligatorio
     def validate_categoria_producto (self, value):
         if value == "" or value == None:
-            raise serializers.ValidationError("Deves ingresar una Categoria de Producto")
+            raise serializers.ValidationError ("Deves ingresar una Categoria de Producto")
+
         return value
 
     #   aca hago que los campos unidad_medida y categoria_producto sean obligatorios
-    def validate(self, data):
+    def validate (self, data):
         if "unidad_medida" not in data.keys():
-            raise serializers.ValidationError({"unidad_medida":"deve de ingresar una Unidad de Mendida"})
+            raise serializers.ValidationError ({"unidad_medida":"deve de ingresar una Unidad de Mendida"})
 
         if "categoria_producto" not in data.keys():
-            raise serializers.ValidationError({"categoria_producto":"deve de ingresar una Categoria de Producto"})
+            raise serializers.ValidationError ({"categoria_producto":"deve de ingresar una Categoria de Producto"})
 
         return data
 
     #  asi mostrar el contenido de todos los campos incluyendo las relasinados
-    def to_representation(self, instance):
+    def to_representation (self, instance):
         return {
             "id": instance.id,
             # el if es para cuando no tenes ninguna cantidad en estock aparesca 0 en el fron
             # "stock": instance.stocks.get ("cantidad__sum") if instance.stocks.get ("cantidad__sum") is not None else 0,
             "producto": instance.producto,
+            "precio": instance.precio,
             "descripcion_producto": instance.descripcion_producto,
             #   cuando no tenes una imagen devuelve una cadena vasio y da error asi lo areglas
             # "imagen_producto": instance.imagen_producto if instance.imagen_producto != "" else "",

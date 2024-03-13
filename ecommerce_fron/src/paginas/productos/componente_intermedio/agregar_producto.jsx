@@ -28,7 +28,7 @@ const CrearProducto = () => {
         try {
             await boton_crear (producto);
             // Actualiza el mensaje después de una creación exitosa
-            setMensaje ("Usuario creado exitosamente.");
+            setMensaje ("Producto creado exitosamente.");
             setMostrarModal (true);
 
             

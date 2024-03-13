@@ -48,13 +48,16 @@ class ProductoViewSets (viewsets.ModelViewSet):
 
     #   es lo mismo que un metodo post que es un http PUT
     def create (self, request):
-        print (request.data)
         #   esta es una comprovacion para saber si me estan mandando una imagen o una cadena vacia el serealizador no se da cuenta
-        data = validar_archivo(request.data, "imagen_producto")
+        data = validar_archivo (request.data, "imagen_producto")
         serealizador = self.serializer_class (data = data)
+
+        # print("Tesen seste error",serealizador.errors)
         if serealizador.is_valid():
             serealizador.save()
+
             return Response ({"message":"Producto creado corectamente"}, status = status.HTTP_201_CREATED)
+
         return Response (serealizador.errors, status = status.HTTP_400_BAD_REQUEST)
 
 #   el delate por defecto elimina el producto por completo

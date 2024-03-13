@@ -18,6 +18,16 @@ const CrearProductoForm = ({ producto, input_form, boton_crear }) => {
             </div>
 
             <div>
+                <label> Precio : </label>
+                <input
+                    type = "text"
+                    name = "precio"
+                    value = {producto.precio}
+                    onChange = {input_form}
+                />
+            </div>
+
+            <div>
                 <label> Descripcion producto : </label>
                 <textarea
                     name = "descripcion_producto"
