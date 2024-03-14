@@ -1,7 +1,12 @@
 import React from "react";
+import MostrarUnidadesMedidas from "../../unidad_medida/componente_intermedio/unidades_medidas";
+import MostrarCategorias from "../../categoria/componente_intermedio/MostrarCategorias";
 
 
 const CrearProductoForm = ({ producto, input_form, boton_crear }) => {
+    const mostrarUnidadesMedidas = MostrarUnidadesMedidas();
+    const mostrarCategoria = MostrarCategorias();
+
     // Retorna la estructura del componente, que es un formulario para crear un nuevo producto.
     return (
         <div>
@@ -44,9 +49,9 @@ const CrearProductoForm = ({ producto, input_form, boton_crear }) => {
                     onChange = {input_form}
                 >
 
-                    <option value = "kilogramos"> Kilogramos </option>
-                    <option value = "litros"> Litros </option>
-                    <option value = {1} > 1 </option>
+                {mostrarUnidadesMedidas.map ((output) => (
+                    <option value = {output.id}> {output.descripción} </option>
+                ))}
                 </select>
             </div>
 
@@ -58,9 +63,9 @@ const CrearProductoForm = ({ producto, input_form, boton_crear }) => {
                     onChange = {input_form}
                 >
 
-                    <option value = "electronicos">Electrónicos</option>
-                    <option value = "ropa">Ropa</option>
-                    <option value = {1}>1</option>
+                {mostrarCategoria.map ((output) => (
+                    <option value = {output.id}> {output.descripción} </option>
+                ))}
                 </select>
             </div>
 
