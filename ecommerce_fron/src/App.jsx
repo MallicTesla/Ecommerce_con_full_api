@@ -10,6 +10,8 @@ import CrearProducto from "./paginas/productos/componente_intermedio/agregar_pro
 
 import UnidadesMedida from "./paginas/unidad_medida/componentes/unidades_medidas";
 
+import Categorias from "./paginas/categoria/componentes/Categorias";
+
 
 function App() {
 
@@ -35,9 +37,14 @@ function App() {
                         <li><Link to = "/CrearProducto"> Crear producto </Link></li>
                     </ul>
 
-                    {/* productos */}
+                    {/* unidad medida */}
                     <ul>
                         <li><Link to = "/unidades_medidas" > Undidades de medidas </Link></li>
+                    </ul>
+
+                    {/* categorias */}
+                    <ul>
+                        <li><Link to = "/categorias" > Categorias </Link></li>
                     </ul>
 
                 </nav>
@@ -55,6 +62,9 @@ function App() {
 
                     {/* unidad_medida */}
                     <Route path = "/unidades_medidas" element = {<UnidadesMedida />} />
+
+                    {/* categoria */}
+                    <Route path= "/categorias" element = {<Categorias />} />
 
                 </Routes>
             </div>
