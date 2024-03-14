@@ -8,9 +8,9 @@ import CrearUsuario  from "./paginas/usuario/componente_intermedio/crear_usuario
 import Productos from "./paginas/productos/componentes/productos";
 import CrearProducto from "./paginas/productos/componente_intermedio/agregar_producto"
 
-import UnidadesMedida from "./paginas/unidad_medida/componentes/unidades_medidas";
+import UnidadesMedidasComponente from "./paginas/unidad_medida/componentes/UnidadesMedidasComponente";
 
-import Categorias from "./paginas/categoria/componentes/Categorias";
+import CategoriasComponente from "./paginas/categoria/componentes/CategoriasComponente";
 
 
 function App() {
@@ -61,10 +61,10 @@ function App() {
                     <Route path = "/CrearProducto" element = {<CrearProducto />}/>
 
                     {/* unidad_medida */}
-                    <Route path = "/unidades_medidas" element = {<UnidadesMedida />} />
+                    <Route path = "/unidades_medidas" element = {<UnidadesMedidasComponente />} />
 
                     {/* categoria */}
-                    <Route path= "/categorias" element = {<Categorias />} />
+                    <Route path= "/categorias" element = {<CategoriasComponente />} />
 
                 </Routes>
             </div>

@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { optener_lista } from "../api/api";
+import MostrarUnidadesMedidas from "../componente_intermedio/unidades_medidas";
 
-function UnidadesMedida() {
-    const [detalles, setDetalles] = useState([]);
-
-    useEffect (() => {
-        const fetchData = async () => {
-        const data = await optener_lista();
-        setDetalles (data);
-        };
-
-        fetchData();
-    }, []);
+function UnidadesMedidasComponente() {
+    const detalles = MostrarUnidadesMedidas();
 
     return (
         <div>
@@ -20,8 +11,8 @@ function UnidadesMedida() {
                 <h2> Unidades medidas </h2>
                 <hr />
 
-                {detalles.map ((output, id) => (
-                    <div key = {id}>
+                {detalles.map((output, id) => (
+                    <div key={id}>
                         <div>
                             <h3> Unidad de medida : {output.descripción} </h3>
                             <h4> ID : {output.id} </h4>
@@ -29,7 +20,7 @@ function UnidadesMedida() {
                             <h4> Creada : {output.frcha_creacion} </h4>
                             <h4> Actualizada : {output.fecha_modificado} </h4>
 
-                            <li><Link to = {{pathname: `/unidad_medida/${output.id}` }} > Mas  </Link></li>
+                            <li><Link to={{ pathname: `/unidad_medida/${output.id}` }}> Mas  </Link></li>
                             <hr />
                         </div>
                     </div>
@@ -39,4 +30,4 @@ function UnidadesMedida() {
     );
 }
 
-export default UnidadesMedida;
+export default UnidadesMedidasComponente;

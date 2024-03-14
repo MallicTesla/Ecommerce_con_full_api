@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { optener_lista } from "../api/api";
+import MostrarCategorias from "../componente_intermedio/MostrarCategorias";
 
-function Categorias() {
-    const [detalles, setDetalles] = useState([]);
-
-    useEffect (() => {
-        const fetchData = async () => {
-        const data = await optener_lista();
-        setDetalles (data);
-        };
-
-        fetchData();
-    }, []);
+function CategoriasComponente() {
+    const detalles = MostrarCategorias();
 
     return (
         <div>
@@ -39,4 +30,4 @@ function Categorias() {
     );
 }
 
-export default Categorias;
+export default CategoriasComponente;
