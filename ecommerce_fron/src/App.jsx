@@ -1,15 +1,21 @@
 import "./App.css"
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+
+// usuario
 import Usuarios from "./paginas/usuario/componentes/usuarios_from";
 import Usuario  from "./paginas/usuario/componentes/UsuarioComponente";
 import CrearUsuario  from "./paginas/usuario/componente_intermedio/crear_usuario";
 
+// producto
 import Productos from "./paginas/productos/componentes/productos";
 import CrearProducto from "./paginas/productos/componente_intermedio/agregar_producto"
+import ProductoComponente from "./paginas/productos/componentes/producto_componente";
 
+// unidad medida
 import UnidadesMedidasComponente from "./paginas/unidad_medida/componentes/UnidadesMedidasComponente";
 
+// categoria
 import CategoriasComponente from "./paginas/categoria/componentes/CategoriasComponente";
 
 
@@ -34,6 +40,7 @@ function App() {
                     {/* productos */}
                     <ul>
                         <li><Link to = "/productos "> Productos </Link></li>
+                        <li><Link to = "/Producto"> Producto </Link></li>
                         <li><Link to = "/CrearProducto"> Crear producto </Link></li>
                     </ul>
 
@@ -59,6 +66,8 @@ function App() {
                     {/* productos */}
                     <Route path = "/productos" element = {<Productos />} />
                     <Route path = "/CrearProducto" element = {<CrearProducto />}/>
+                    <Route path = "/Producto" element = {<ProductoComponente />}/>
+                    <Route path = "/Producto/:id_id" element = {<ProductoComponente />}/>
 
                     {/* unidad_medida */}
                     <Route path = "/unidades_medidas" element = {<UnidadesMedidasComponente />} />
