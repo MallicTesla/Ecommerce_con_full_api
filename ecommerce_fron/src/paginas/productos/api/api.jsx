@@ -60,10 +60,10 @@ export const actualizarProducto = async (productoID, producto) => {
     return enviarPeticion (url, "put", producto);
 };
 
-// export const borrar_usuario = async (productoID) => {
-//     const url = `${PRODUCTOS_API_URL}${productoID}/`;
-//     return enviarPeticion (url, "delete");
-// };
+export const borrar_producto = async (productoID) => {
+    const url = `${PRODUCTOS_API_URL}${productoID}/`;
+    return enviarPeticion (url, "delete");
+};
 
 // export const actualizarContraseña = async (productoID, datosContraseña) => {
 //     const url = `${PRODUCTOS_API_URL}${productoID}/`;

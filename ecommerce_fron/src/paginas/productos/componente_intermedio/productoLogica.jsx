@@ -46,6 +46,7 @@ export function useProductoLogica() {
         productoID,
         error,
         mostrarActualizar,
+        id_id,
         setProductoID,
         handleClick,
         editar_producto,

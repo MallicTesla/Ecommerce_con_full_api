@@ -1,7 +1,7 @@
 import React from "react";
 import { useProductoLogica } from "../componente_intermedio/productoLogica";
 // import ActualizarProducto from "../componente_intermedio/actualizar_usuario";
-// import Borrar_Producto from "../componente_intermedio/borrar_usuario"; 
+import Borrar_Producto from "../componente_intermedio/borrar_producto"; 
 
 
 function ProductoComponente() {
@@ -10,16 +10,19 @@ function ProductoComponente() {
         productoID,
         error,
         mostrarActualizar,
+        id_id,
         setProductoID,
         handleClick,
         editar_producto,
         // onActualizarProducto,
     } = useProductoLogica();
 
+    console.log ("hola", id_id)
+
     return (
         <div>
             <div>
-                <h1>Vista de Producto</h1>
+                <h1>Vista de Producto ({id_id}) </h1>
                 <hr />
 
                 <div>
@@ -52,14 +55,14 @@ function ProductoComponente() {
             <div>
                 <div>
                     <button onClick={editar_producto}> Editar Producto </button>
-                    {/* <Borrar_Producto productoID={id_id} /> */}
+                    <Borrar_Producto productoID={id_id} />
                 </div>
                 <hr />
 
                 <div>
                     {mostrarActualizar && (
                         <div>
-                            {/* <ActualizarProducto productoID={id_id} onActualizarProducto={onActualizarProducto} /> */}
+                            {/* <ActualizarProducto productoID={productoID} onActualizarProducto={onActualizarProducto} /> */}
 
                         </div>
                     )}
