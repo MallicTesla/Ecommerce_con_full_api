@@ -1,6 +1,6 @@
 import React from "react";
 import { useProductoLogica } from "../componente_intermedio/productoLogica";
-// import ActualizarProducto from "../componente_intermedio/actualizar_usuario";
+import ActualizarProducto from "../componente_intermedio/actualiszar_producto";
 import Borrar_Producto from "../componente_intermedio/borrar_producto"; 
 
 
@@ -14,10 +14,9 @@ function ProductoComponente() {
         setProductoID,
         handleClick,
         editar_producto,
-        // onActualizarProducto,
+        onActualizarProducto,
     } = useProductoLogica();
 
-    console.log ("hola", id_id)
 
     return (
         <div>
@@ -45,6 +44,7 @@ function ProductoComponente() {
                             <h4> descripcion : {output.descripcion_producto}</h4>
                             <h4> Unidad de medida : {output.unidad_medida} </h4>
                             <h4> Categoria del producto : {output.categoria_producto} </h4>
+                            <h4> Imagen : {output.imagen_producto} </h4>
                         </div>
                     </div>
                 ))}
@@ -62,7 +62,7 @@ function ProductoComponente() {
                 <div>
                     {mostrarActualizar && (
                         <div>
-                            {/* <ActualizarProducto productoID={productoID} onActualizarProducto={onActualizarProducto} /> */}
+                            <ActualizarProducto productoID={id_id} onActualizarProducto={onActualizarProducto} />
 
                         </div>
                     )}
