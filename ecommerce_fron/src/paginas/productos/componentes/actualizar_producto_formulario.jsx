@@ -8,6 +8,8 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
     const mostrarUnidadesMedidas = MostrarUnidadesMedidas();
     const mostrarCategoria = MostrarCategorias();
 
+    const handleFileInputChange = (e) => { handleInputChange(e); };
+
     return (
         <div>
             <h2>Actualizar Producto</h2>
@@ -72,10 +74,10 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
             <div>
                 <label> Imagen : </label>
                 <input
-                    type = "text"
+                    type = "file"
+                    accept = "image/*"
                     name = "imagen_producto"
-                    value = {producto.imagen_producto}
-                    onChange = {handleInputChange}
+                    onChange = {handleFileInputChange}
                 />
             </div>
 
