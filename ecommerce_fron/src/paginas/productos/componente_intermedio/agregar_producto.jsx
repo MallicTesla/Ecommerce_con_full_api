@@ -19,9 +19,14 @@ const CrearProducto = () => {
 
     // Declara una función 'input_form' que se ejecuta cuando hay cambios en los campos de entrada del formulario.
     const input_form = (e) => {
+        console.log (e.target.value)
         // Actualiza el estado 'producto' copiando el estado actual y sobrescribiendo la propiedad correspondiente con el nuevo valor.
         setProducto({ ...producto, [e.target.name]: e.target.value });
     };
+
+    const input_archivo = (e) => {
+        setProducto({ ...producto, [e.target.name]: e.target.files[0] });
+    }
 
     // Función para manejar la creación del producto
     const handleCrearProducto = async () => {
@@ -54,6 +59,7 @@ const CrearProducto = () => {
                 producto = {producto}
                 input_form = {input_form}
                 boton_crear = {handleCrearProducto}
+                input_archivo = {input_archivo}
             />
 
             {mostrarModal && (

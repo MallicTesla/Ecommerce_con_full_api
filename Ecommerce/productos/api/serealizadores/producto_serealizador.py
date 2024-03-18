@@ -54,7 +54,7 @@ class ProductoSerealizera (serializers.ModelSerializer):
             "descripcion_producto": instance.descripcion_producto,
             #   cuando no tenes una imagen devuelve una cadena vasio y da error asi lo areglas
             # "imagen_producto": instance.imagen_producto if instance.imagen_producto != "" else "",
-            # "imagen_producto": instance.imagen_producto.url if instance.imagen_producto != "" else "",
+            "imagen_producto": instance.imagen_producto.url if instance.imagen_producto != "" else "",
             "unidad_medida": instance.unidad_medida.descripción if instance.unidad_medida is not None else "",
             "categoria_producto": instance.categoria_producto.descripción if instance.categoria_producto is not None else "",
         }

@@ -22,6 +22,7 @@ from datetime import datetime
 def validar_archivo (request, campo, actualizar=False):
     # crea una copia der request que si es mutable (aunque ami me funsiono igual sin esto pero de la otra forma no me dejaba)
     request = request.copy()
+    print ("12",type (request [campo]))
 
     if actualizar:
         # si al actualisar devuelve un un str lo elimina de la actualizasion y lo deja como estaba

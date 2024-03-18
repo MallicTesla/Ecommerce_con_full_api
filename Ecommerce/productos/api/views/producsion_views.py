@@ -52,7 +52,6 @@ class ProductoViewSets (viewsets.ModelViewSet):
         data = validar_archivo (request.data, "imagen_producto")
         serealizador = self.serializer_class (data = data)
 
-        # print("Tesen seste error",serealizador.errors)
         if serealizador.is_valid():
             serealizador.save()
 

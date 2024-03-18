@@ -14,7 +14,12 @@ export const enviarPeticion = async (url, metodo, datos = null) => {
                 break;
 
             case "post":
-                respuesta = await axios.post (url, datos);
+                respuesta = await axios.post (url, datos, {
+                    headers: {
+                        // espesifica el tipo de contenido para que sea un formulario
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
                 break;
 
             case "put":
@@ -52,7 +57,17 @@ export const obtenerProductoID = async (productoID) => {
 
 export const boton_crear = async (producto) => {
     const url = PRODUCTOS_API_URL;
-    return enviarPeticion (url, "post", producto);
+
+    // crea un formulario vacio
+    const form = new FormData ();
+
+    // recore todos los campos del producto
+    Object.keys (producto).forEach ((campo)=> {
+        // y los agrega al formulario
+        form.append (campo, producto [campo]);
+    });
+
+    return enviarPeticion (url, "post", form);
 };
 
 export const actualizarProducto = async (productoID, producto) => {
