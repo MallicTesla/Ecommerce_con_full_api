@@ -1,7 +1,10 @@
+from django.http import HttpResponse
+
 # con la libreria JWT no se usa esto
 from rest_framework import generics
 from rest_framework import status
 from rest_framework import viewsets
+from rest_framework.decorators import action
 # los parsrs son para las imagenes y ya vienen incluidos
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.response import Response
@@ -45,6 +48,30 @@ class ProductoViewSets (viewsets.ModelViewSet):
 
         serealizador = self.get_serializer(self.get_queryset(), many = True)
         return Response (serealizador.data, status = status.HTTP_200_OK)
+
+
+    @action (detail = True, methods = ["GET"], url_path = "imagen")
+    def imagen (self, request, pk=None):
+        producto = self.get_queryset(pk=pk)
+        if not producto:
+            return Response ({"error": "No se encuentra ningún producto con ese ID"}, status=status.HTTP_404_NOT_FOUND)
+
+        imagen_producto = producto.imagen_producto  # Suponiendo que tu modelo de Producto tiene un campo llamado "imagen"
+        imagen_data = imagen_producto.read()
+
+        # Obtener el tipo MIME basado en la extensión del archivo
+        if imagen_producto.name.endswith ('.jpeg') or imagen_producto.name.endswith ('.jpg'):
+            tipo_imagen = "image/jpeg"
+        elif imagen_producto.name.endswith ('.png'):
+            tipo_imagen = "image/png"
+        elif imagen_producto.name.endswith ('.gif'):
+            tipo_imagen = "image/gif"
+        else:
+            # Por defecto, establecer el tipo MIME como JPEG
+            tipo_imagen = "image/jpeg"
+
+        return HttpResponse (imagen_data, content_type=tipo_imagen)
+
 
     #   es lo mismo que un metodo post que es un http PUT
     def create (self, request):
