@@ -77,7 +77,6 @@ const CrearProductoForm = ({ producto, input_form, boton_crear, input_archivo })
                 />
             </div>
 
-            {/* El botón "Crear Producto" llama a la función 'boton_crear' cuando se hace clic. */}
             <div>
                 <button onClick={boton_crear}>Crear Producto</button>
             </div>
@@ -87,8 +86,7 @@ const CrearProductoForm = ({ producto, input_form, boton_crear, input_archivo })
                 {producto.imagen_producto && (
                     <img
                         src={URL.createObjectURL(producto.imagen_producto)}
-                        style={{ maxWidth: "300px", maxHeight: "300px" }} // Define el tamaño máximo para la imagen
-                        alt="Vista previa de la imagen"
+                        style={{ maxWidth: "300px", maxHeight: "300px" }} 
                     />
                 )}
             </div>
