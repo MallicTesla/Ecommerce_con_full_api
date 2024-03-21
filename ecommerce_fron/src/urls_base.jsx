@@ -14,4 +14,4 @@ export const UNIDAD_MEDIDA_API_URL = `${API_BASE_URL}productos/unidad_medidas/`;
 export const CATEGORIA_API_URL = `${API_BASE_URL}productos/categorias/`;
 
 // imagen
-export const IMAGENES = `../../../../../Ecommerce`;
+export const IMAGENE = `/imagen/`;

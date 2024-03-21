@@ -13,13 +13,6 @@ export const enviarPeticion = async (url, metodo, datos = null) => {
                 respuesta = await axios.get (url);
                 break;
 
-            case "optener_imagen_producto":
-                respuesta = await axios.get(url, {
-                    // Especifica el tipo de respuesta como arraybuffer para datos binarios
-                    responseType: 'arraybuffer'
-                });
-                break;
-
             case "post":
                 respuesta = await axios.post (url, datos, {
                     headers: {
@@ -60,25 +53,6 @@ export const optener_lista = async () => {
 export const obtenerProductoID = async (productoID) => {
     const url = `${PRODUCTOS_API_URL}${productoID}/`;
     return enviarPeticion (url, "get");
-};
-
-export const optenerImagenProducto = async (productoID) => {
-    console.log("1")
-    const url = `${PRODUCTOS_API_URL}${productoID}/imagen/`;
-    console.log("2")
-
-    const respuesta = await enviarPeticion (url, "optener_imagen_producto");
-    console.log("3", respuesta)
-
-    // Crear un objeto Blob a partir de los datos binarios
-    const blob = new Blob ([respuesta.data], { type: 'image/jpg' });
-    console.log("4", blob)
-
-    // Crear una URL para el objeto Blob
-    const imageUrl = URL.createObjectURL(blob);
-    console.log("5", imageUrl)
-
-    return imageUrl;
 };
 
 export const boton_crear = async (producto) => {

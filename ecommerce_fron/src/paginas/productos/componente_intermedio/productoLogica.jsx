@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { obtenerProductoID, optenerImagenProducto } from "../api/api";
+import { obtenerProductoID } from "../api/api";
 
-export function useProductoLogica() {
-    const [imagen, setImagen] = useState(null);
+export function useProductoLogica() {;
     const [detalles, setDetalles] = useState([]);
     const [productoID, setProductoID] = useState("");
     const [error, setError] = useState(null);
@@ -14,7 +13,6 @@ export function useProductoLogica() {
     useEffect(() => {
         if (id_id) {
             cargarProducto (id_id);
-            cargarImagenProducto (id_id);
         }
     }, [id_id]);
 
@@ -28,18 +26,6 @@ export function useProductoLogica() {
             setError ("No se a podido cargar el producto");
         }
     };
-
-    const cargarImagenProducto = async (id) => {
-        try {
-            const img = await optenerImagenProducto (id);
-            console.log("despues")
-            setImagen (img)
-            console.log ("termino")
-
-        } catch (error) {
-            setError ("No caraga la imagen")
-        }
-    } 
 
     const handleClick = async () => {
         navigate("/producto/" + productoID);
@@ -63,7 +49,6 @@ export function useProductoLogica() {
         error,
         mostrarActualizar,
         id_id,
-        imagen,
         setProductoID,
         handleClick,
         editar_producto,
