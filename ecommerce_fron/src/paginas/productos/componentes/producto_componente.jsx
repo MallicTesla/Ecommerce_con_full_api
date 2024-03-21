@@ -2,7 +2,6 @@ import React from "react";
 import { useProductoLogica } from "../componente_intermedio/productoLogica";
 import ActualizarProducto from "../componente_intermedio/actualiszar_producto";
 import Borrar_Producto from "../componente_intermedio/borrar_producto"; 
-import { IMAGENES } from "../../../urls_base";
 
 
 function ProductoComponente() {
@@ -12,6 +11,7 @@ function ProductoComponente() {
         error,
         mostrarActualizar,
         id_id,
+        imagen,
         setProductoID,
         handleClick,
         editar_producto,
@@ -48,17 +48,18 @@ function ProductoComponente() {
                             <h4> Imagen : {output.imagen_producto} </h4>
                         </div>
 
-                        <div>
-                        {console.log(IMAGENES + output.imagen_producto)}
-                            <h4> Imagen : </h4>
-                                <img
-                                    src = {IMAGENES + output.imagen_producto}
-                                    style={{ maxWidth: "300px", maxHeight: "300px" }}
-                                    alt = "Imagen"
-                                />
-                        </div>
                     </div>
                 ))}
+
+                        <div>
+                        {/* {console.log(imagen)} */}
+                            {imagen && (
+                                <div>
+                                    <h4>Imagen:</h4>
+                                    <img src={imagen} alt="Imagen del producto" />
+                                </div>
+                            )}
+                        </div>
 
                 {error && <p style={{ color: "red" }}>{error}</p>}
             </div>
