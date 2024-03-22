@@ -5,12 +5,12 @@ import { obtenerProductoID, actualizarProducto } from "../api/api";
 
 
 const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
+    const [pre_visualizasion, serPre_visualizasion] = useState (false)
     const [producto, setProducto] = useState({
         producto: "",
         descripcion_producto: "",
         unidad_medida: "",
         categoria_producto: "",
-        imagen_producto: "",
     });
 
     useEffect(() => {
@@ -31,6 +31,12 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
         setProducto ({ ...producto, [e.target.name]: e.target.value });
     };
 
+    const input_archivo = (e) => {
+        setProducto({ ...producto, [e.target.name]: e.target.files[0] });
+        const imagen = e.target.files[0];
+        serPre_visualizasion (imagen);
+    };
+
     const handleActualizarProducto = async () => {
         try {
             await actualizarProducto (productoID, producto);
@@ -46,6 +52,8 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
         producto = {producto}
         handleInputChange = {handleInputChange}
         handleActualizarProducto = {handleActualizarProducto}
+        input_archivo = {input_archivo}
+        pre_visualizasion = {pre_visualizasion}
         />
     );
 };

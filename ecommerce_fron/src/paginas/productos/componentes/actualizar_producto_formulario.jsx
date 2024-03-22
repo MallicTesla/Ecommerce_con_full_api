@@ -4,11 +4,11 @@ import MostrarUnidadesMedidas from "../../unidad_medida/componente_intermedio/un
 import MostrarCategorias from "../../categoria/componente_intermedio/MostrarCategorias";
 
 
-const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarProducto }) => {
+const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarProducto, input_archivo, pre_visualizasion }) => {
     const mostrarUnidadesMedidas = MostrarUnidadesMedidas();
     const mostrarCategoria = MostrarCategorias();
 
-    const handleFileInputChange = (e) => { handleInputChange(e); };
+    // const handleFileInputChange = (e) => { handleInputChange(e); };
 
     return (
         <div>
@@ -77,8 +77,19 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     type = "file"
                     accept = "image/*"
                     name = "imagen_producto"
-                    onChange = {handleFileInputChange}
+                    onChange = {input_archivo}
                 />
+            </div>
+
+            <div>
+                <h3> Vista previa de la imagen : </h3>
+                {pre_visualizasion && (
+                    <img
+                        src = {URL.createObjectURL(pre_visualizasion)}
+                        style = {{ maxWidth: "300px", maxHeight: "300px" }}
+                        alt = "Vista previa de la imagen"
+                    />
+                )}
             </div>
 
             <button onClick = {handleActualizarProducto}>Actualizar Producto</button>

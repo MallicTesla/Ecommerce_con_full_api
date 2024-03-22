@@ -23,11 +23,11 @@ export const enviarPeticion = async (url, metodo, datos = null) => {
                 break;
 
             case "put":
-                respuesta = await axios.put (url, datos);
-                break;
-
-            case "patch":
-                respuesta = await axios.put (url, datos);
+                respuesta = await axios.put (url, datos, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
                 break;
 
             case "delete":
@@ -72,6 +72,13 @@ export const boton_crear = async (producto) => {
 
 export const actualizarProducto = async (productoID, producto) => {
     const url = `${PRODUCTOS_API_URL}${productoID}/`;
+
+    const form = new FormData ();
+
+    Object.keys (producto).forEach ((campo)=> {
+        form.append (campo, producto [campo]);
+    });
+
     return enviarPeticion (url, "put", producto);
 };
 
@@ -79,8 +86,3 @@ export const borrar_producto = async (productoID) => {
     const url = `${PRODUCTOS_API_URL}${productoID}/`;
     return enviarPeticion (url, "delete");
 };
-
-// export const actualizarContraseña = async (productoID, datosContraseña) => {
-//     const url = `${PRODUCTOS_API_URL}${productoID}/`;
-//     return enviarPeticion(url, "patch", datosContraseña);
-// };
