@@ -12,6 +12,14 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
         unidad_medida: "",
         categoria_producto: "",
     });
+    const [camposObligatorios, setCamposObligatorios] = useState({
+        producto: false,
+        precio: false,
+        descripcion_producto: false,
+        unidad_medida: false,
+        categoria_producto: false,
+        imagen_producto: false,
+    });
 
     useEffect(() => {
         const cargarProducto = async () => {
@@ -29,6 +37,7 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
 
     const handleInputChange = (e) => {
         setProducto ({ ...producto, [e.target.name]: e.target.value });
+        setCamposObligatorios({ ...camposObligatorios, [e.target.name]: false });
     };
 
     const input_archivo = (e) => {
@@ -38,12 +47,24 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
     };
 
     const handleActualizarProducto = async () => {
-        try {
-            await actualizarProducto (productoID, producto);
-            // Actualización exitosa, establece el estado actualizacionExitosa en true
-            onActualizarProducto();
-        } catch (error) {
-            // Manejar el error si es necesario
+        // Verificar qué campos son obligatorios y si están vacíos
+        const camposVacios = {};
+        for (const campo in camposObligatorios) {
+            if (!producto[campo]) {
+                camposVacios[campo] = true;
+            }
+        }
+        setCamposObligatorios(camposVacios);
+
+        // Lógica para actualizar el producto si todos los campos obligatorios están completos
+        if (Object.keys (camposVacios).length === 0){
+            try {
+                await actualizarProducto (productoID, producto);
+                // Actualización exitosa, establece el estado actualizacionExitosa en true
+                onActualizarProducto();
+            } catch (error) {
+                // Manejar el error si es necesario
+            }
         }
     };
 
@@ -54,6 +75,7 @@ const ActualizarProducto = ({ productoID, onActualizarProducto }) => {
         handleActualizarProducto = {handleActualizarProducto}
         input_archivo = {input_archivo}
         pre_visualizasion = {pre_visualizasion}
+        camposObligatorios = {camposObligatorios}
         />
     );
 };

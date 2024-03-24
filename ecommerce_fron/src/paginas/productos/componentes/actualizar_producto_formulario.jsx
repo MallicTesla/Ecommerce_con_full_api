@@ -4,7 +4,7 @@ import MostrarUnidadesMedidas from "../../unidad_medida/componente_intermedio/un
 import MostrarCategorias from "../../categoria/componente_intermedio/MostrarCategorias";
 
 
-const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarProducto, input_archivo, pre_visualizasion }) => {
+const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarProducto, input_archivo, pre_visualizasion, camposObligatorios }) => {
     const mostrarUnidadesMedidas = MostrarUnidadesMedidas();
     const mostrarCategoria = MostrarCategorias();
 
@@ -22,6 +22,7 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     value = {producto.producto}
                     onChange = {handleInputChange}
                 />
+                {camposObligatorios.producto && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
@@ -32,6 +33,7 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     value = {producto.precio}
                     onChange = {handleInputChange}
                 />
+                {camposObligatorios.precio && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
@@ -41,6 +43,7 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     value = {producto.descripcion_producto}
                     onChange = {handleInputChange}
                 />
+                {camposObligatorios.descripcion_producto && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
@@ -51,10 +54,13 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     onChange = {handleInputChange}
                 >
 
+                    <option value = "" key = ""> Selecsionar Unidad de medida </option>
                 {mostrarUnidadesMedidas.map ((output) => (
                     <option value = {output.id}> {output.descripción} </option>
                 ))}
                 </select>
+
+                {camposObligatorios.unidad_medida && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
@@ -65,10 +71,13 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     onChange = {handleInputChange}
                 >
 
+                    <option value = "" key = ""> Selecsionar Categoria producto </option>
                 {mostrarCategoria.map ((output) => (
                     <option value = {output.id}> {output.descripción} </option>
                 ))}
                 </select>
+
+                {camposObligatorios.categoria_producto && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
@@ -79,6 +88,7 @@ const ActualizarProductoForm = ({ producto, handleInputChange, handleActualizarP
                     name = "imagen_producto"
                     onChange = {input_archivo}
                 />
+                {camposObligatorios.imagen_producto && <p style = {{ color: "red" }}> Este campo es obligatorio </p>}
             </div>
 
             <div>
