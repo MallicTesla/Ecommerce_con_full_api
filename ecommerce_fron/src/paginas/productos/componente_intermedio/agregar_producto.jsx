@@ -10,9 +10,18 @@ const CrearProducto = () => {
     // Utiliza el hook useState para declarar un estado llamado 'producto' con un valor inicial de un objeto vacío.
     const [producto, setProducto] = useState({
         producto: "",
+        precio: "",
         descripcion_producto: "",
         unidad_medida: "",
         categoria_producto: "",
+    });
+    const [camposObligatorios, setCamposObligatorios] = useState({
+        producto: false,
+        precio: false,
+        descripcion_producto: false,
+        unidad_medida: false,
+        categoria_producto: false,
+        imagen_producto: false,
     });
     const [mensaje, setMensaje] = useState("");
     const [mostrarModal, setMostrarModal] = useState(false);
@@ -53,13 +62,31 @@ const CrearProducto = () => {
         setMensaje ("");
     };
 
+    // Función para manejar el clic en el botón de crear producto
+    const handleClickCrearProducto = () => {
+        // Verificar qué campos son obligatorios y si están vacíos
+        const camposVacios = {};
+        for (const campo in camposObligatorios) {
+            if (!producto[campo]) {
+                camposVacios[campo] = true;
+            }
+        }
+        setCamposObligatorios(camposVacios);
+
+        // Lógica para crear el producto si todos los campos obligatorios están completos
+        if (Object.keys (camposVacios).length === 0) {
+            handleCrearProducto();
+        }
+    };
+
     return (
         <div>
             <CrearProductoForm
                 producto = {producto}
                 input_form = {input_form}
-                boton_crear = {handleCrearProducto}
+                boton_crear = {handleClickCrearProducto}
                 input_archivo = {input_archivo}
+                camposObligatorios = {camposObligatorios}
             />
 
             {mostrarModal && (
