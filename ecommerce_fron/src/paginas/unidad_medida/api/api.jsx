@@ -50,14 +50,15 @@ export const optener_lista = async () => {
 //     return enviarPeticion (url, "get");
 // };
 
-// export const boton_crear = async (producto) => {
-//     const url = UNIDAD_MEDIDA_API_URL;
-//     return enviarPeticion (url, "post", producto);
-// };
+export const boton_crear = async (unidad_medida) => {
+    console.log ("API");
+    const url = UNIDAD_MEDIDA_API_URL;
+    return enviarPeticion (url, "post", unidad_medida);
+};
 
-// export const actualizarUsuario = async (usuarioId, producto) => {
+// export const actualizarUsuario = async (usuarioId, unidad_medida) => {
 //     const url = `${UNIDAD_MEDIDA_API_URL}${usuarioId}/`;
-//     return enviarPeticion (url, "put", producto);
+//     return enviarPeticion (url, "put", unidad_medida);
 // };
 
 // export const borrar_usuario = async (usuarioId) => {

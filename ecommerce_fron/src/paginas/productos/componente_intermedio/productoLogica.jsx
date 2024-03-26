@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { obtenerProductoID } from "../api/api";
 
-export function useProductoLogica() {;
+export function useProductoLogica() {
     const [detalles, setDetalles] = useState([]);
     const [productoID, setProductoID] = useState("");
     const [error, setError] = useState(null);
