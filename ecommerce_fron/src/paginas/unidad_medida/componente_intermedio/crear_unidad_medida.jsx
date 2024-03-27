@@ -19,7 +19,6 @@ const CrearUnidadMedida = () => {
 
     // Declara una función 'input_form' que se ejecuta cuando hay cambios en los campos de entrada del formulario.
     const input_form = (e) => {
-        console.log ("C",e.target.value)
         // Actualiza el estado 'unidad_medida' copiando el estado actual y sobrescribiendo la propiedad correspondiente con el nuevo valor.
         setUnidad_medida ({ ...unidad_medida, [e.target.name]: e.target.value });
     };
@@ -37,17 +36,14 @@ const CrearUnidadMedida = () => {
             // Verificar qué campos son obligatorios y si están vacíos
             const camposVacios = {};
             for (const campo in camposObligatorios) {
-                console.log ("DA",campo.descripción)
                 if (!unidad_medida[campo]) {
                     camposVacios[campo] = true;
                 }
             }
             setCamposObligatorios (camposVacios);
-            console.log ("antes",unidad_medida)
 
             // Lógica para crear el unidad_medida si todos los campos obligatorios están completos
             if (Object.keys (camposVacios).length === 0) {
-                console.log ("IF",unidad_medida)
                 await boton_crear (unidad_medida);
                 // Actualiza el mensaje después de una creación exitosa
                 setMensaje("Producto creado exitosamente.");
@@ -61,7 +57,6 @@ const CrearUnidadMedida = () => {
             }
         } catch (error) {
             console.error('Error al crear el unidad_medida:', error.response.status);
-            // Puedes manejar otros casos de error aquí si es necesario
         }
     };
 

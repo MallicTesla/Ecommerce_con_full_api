@@ -15,6 +15,7 @@ import ProductoComponente from "./paginas/productos/componentes/producto_compone
 // unidad medida
 import UnidadesMedidasComponente from "./paginas/unidad_medida/componentes/UnidadesMedidasComponente";
 import CrearUnidadMedida from "./paginas/unidad_medida/componente_intermedio/crear_unidad_medida";
+import Unidad_medida_componente from "./paginas/unidad_medida/componentes/unidad_medida_componente";
 
 // categoria
 import CategoriasComponente from "./paginas/categoria/componentes/CategoriasComponente";
@@ -74,6 +75,8 @@ function App() {
                     {/* unidad_medida */}
                     <Route path = "/unidades_medidas" element = {<UnidadesMedidasComponente />} />
                     <Route path = "/crear_unidades_medidas" element = {<CrearUnidadMedida />} />
+                    <Route path = "/unidad_medida/" element = {<Unidad_medida_componente />} />
+                    <Route path = "/unidad_medida/:id_id" element = {<Unidad_medida_componente />} />
 
                     {/* categoria */}
                     <Route path= "/categorias" element = {<CategoriasComponente />} />

@@ -45,10 +45,10 @@ export const optener_lista = async () => {
     return enviarPeticion (url, "optener_lista")
 }
 
-// export const obtenerUsuarioPorId = async (usuarioId) => {
-//     const url = `${UNIDAD_MEDIDA_API_URL}${usuarioId}/`;
-//     return enviarPeticion (url, "get");
-// };
+export const obtenerUnidad_medidaID = async (unidad_medida_id) => {
+    const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
+    return enviarPeticion (url, "get");
+};
 
 export const boton_crear = async (unidad_medida) => {
     console.log ("API");
@@ -56,17 +56,17 @@ export const boton_crear = async (unidad_medida) => {
     return enviarPeticion (url, "post", unidad_medida);
 };
 
-// export const actualizarUsuario = async (usuarioId, unidad_medida) => {
-//     const url = `${UNIDAD_MEDIDA_API_URL}${usuarioId}/`;
+// export const actualizarUsuario = async (unidad_medida_id, unidad_medida) => {
+//     const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
 //     return enviarPeticion (url, "put", unidad_medida);
 // };
 
-// export const borrar_usuario = async (usuarioId) => {
-//     const url = `${UNIDAD_MEDIDA_API_URL}${usuarioId}/`;
+// export const borrar_usuario = async (unidad_medida_id) => {
+//     const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
 //     return enviarPeticion (url, "delete");
 // };
 
-// export const actualizarContraseña = async (usuarioId, datosContraseña) => {
-//     const url = `${UNIDAD_MEDIDA_API_URL}${usuarioId}/`;
+// export const actualizarContraseña = async (unidad_medida_id, datosContraseña) => {
+//     const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
 //     return enviarPeticion(url, "patch", datosContraseña);
 // };

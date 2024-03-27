@@ -15,10 +15,6 @@ function UnidadesMedidasComponente() {
                     <div key={id}>
                         <div>
                             <h3> Unidad de medida : {output.descripción} </h3>
-                            <h4> ID : {output.id} </h4>
-
-                            <h4> Creada : {output.frcha_creacion} </h4>
-                            <h4> Actualizada : {output.fecha_modificado} </h4>
 
                             <li><Link to={{ pathname: `/unidad_medida/${output.id}` }}> Mas  </Link></li>
                             <hr />
