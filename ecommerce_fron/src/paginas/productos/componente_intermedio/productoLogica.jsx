@@ -20,7 +20,6 @@ export function useProductoLogica() {
         try {
             const data = await obtenerProductoID (id);
             setDetalles ([data]);
-            console.log("antes")
 
         } catch (error) {
             setError ("No se a podido cargar el producto");

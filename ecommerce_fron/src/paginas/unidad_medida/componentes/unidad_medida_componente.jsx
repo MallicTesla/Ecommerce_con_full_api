@@ -1,6 +1,6 @@
 import React from "react";
 import { useUnidadMedidaLogica } from "../componente_intermedio/unidad_medida_Logica";
-// import ActualizarProducto from "../componente_intermedio/actualiszar_producto";
+import ActualizarUnidad_Medida from "../componente_intermedio/actualiszar_unidad_medida";
 // import Borrar_Producto from "../componente_intermedio/borrar_producto";
 
 
@@ -60,7 +60,7 @@ function Unidad_medida_componente() {
                 <div>
                     {mostrarActualizar && (
                         <div>
-                            {/* <ActualizarProducto Unidad_Medida_ID = {id_id} onActualizarUnidadMedid = {onActualizarUnidadMedid} /> */}
+                            <ActualizarUnidad_Medida Unidad_Medida_ID = {id_id} onActualizarUnidadMedid = {onActualizarUnidadMedid} />
                         </div>
                     )}
                 </div>

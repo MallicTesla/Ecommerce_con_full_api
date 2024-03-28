@@ -56,10 +56,10 @@ export const boton_crear = async (unidad_medida) => {
     return enviarPeticion (url, "post", unidad_medida);
 };
 
-// export const actualizarUsuario = async (unidad_medida_id, unidad_medida) => {
-//     const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
-//     return enviarPeticion (url, "put", unidad_medida);
-// };
+export const actualizarUnidad_medida = async (unidad_medida_id, unidad_medida) => {
+    const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
+    return enviarPeticion (url, "put", unidad_medida);
+};
 
 // export const borrar_usuario = async (unidad_medida_id) => {
 //     const url = `${UNIDAD_MEDIDA_API_URL}${unidad_medida_id}/`;
